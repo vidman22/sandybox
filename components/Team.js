@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FlatList, View, Text, StyleSheet, Image, Dimensions, SafeAreaView} from 'react-native';
+import {FlatList, View, Text, StyleSheet, Image, Dimensions, SafeAreaView, TouchableOpacity} from 'react-native';
 import Constants from 'expo-constants';
 import * as colors from '../constants/colors';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -9,41 +9,48 @@ import PCPs from '../Lists/providers.json';
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const statusBarHeight = Constants.statusBarHeight;
 
-function PCPInList({firstName, lastName, img}) {
+function PCPInList({name, img, index, bio, press}) {
 
     return (
         <View style={styles.pcpView}>
-            <View style={styles.nameImgWrapper}>
+            <TouchableOpacity style={styles.nameImgWrapper} onPress={() => press(index, img, name, bio)}>
                 {img ? <Image style={{ width: 120, height: 120, borderRadius: 60, marginLeft: 12, marginRight: 12 }} source={{ uri: img }} /> : <MaterialCommunityIcons style={{ fontSize: 110, }} name="doctor" color="grey" />}
-                <Text style={styles.name}>{firstName}</Text>
-            </View>
+                <Text style={styles.name}>{name}</Text>
+            </TouchableOpacity>
         </View>
     )
 }
 
 class Team extends Component {
 
-    FlatListItemSeparator = () => {
-        return (
-          <View
-            style={{
-              paddingTop: 10,
-              width: "100%",
-              backgroundColor: "white",
-            }}
-          />
-        );
+    // FlatListItemSeparator = () => {
+    //     return (
+    //       <View
+    //         style={{
+    //           width: "100%",
+    //         }}
+    //       />
+    //     );
+    // }
+
+    pressed = (index, image, name, bio) =>{
+        this.props.navigation.navigate('Profile', {
+            index,
+            image,
+            name, 
+            bio
+        })
     }
 
     render() {
+
         return (
+
             <SafeAreaView style={styles.scrollContainer}>
-                <Text style={styles.teamTitle}>Our Team</Text>
                 <FlatList 
                     data={PCPs.resolver} 
-                    ItemSeparatorComponent={this.FlatListItemSeparator}
                     style={styles.scrollContainer} 
-                    renderItem={({item}) => <PCPInList firstName={item.name} img={item.image} getSchedule={this.props.getSchedule}/> }
+                    renderItem={({item}) => <PCPInList name={item.name} index={item.index} press={this.pressed} bio={item.bio} img={item.image} getSchedule={this.props.getSchedule}/> }
                     keyExtractor={item => item.index}
                     numColumns={2}
                     horizontal={false}
@@ -62,7 +69,6 @@ export default Team;
 
 const styles = StyleSheet.create({
     scrollContainer:{
-        marginTop: statusBarHeight,
         flex: 1,
     },
     name:{
@@ -94,7 +100,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         alignItems: 'center',
         // justifyContent: 'space-evenly',
-        backgroundColor: '#fff'
+        // backgroundColor: '#fff'
     }
 })
 
