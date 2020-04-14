@@ -1,0 +1,106 @@
+{
+    "Name": "Theodore Mychart",
+    "SSN": "437-32-4199",
+    "DOB": "1948-07-07",
+    "Gender": "Male",
+    "Status": "Alive",
+    "MaritalStatus": "Married",
+    "HomeDeployment": "",
+    "IDs": [
+      {
+        "ID": "",
+        "Type": "CID"
+      },
+      {
+        "ID": "E2734",
+        "Type": "EPI"
+      }
+    ],
+    "Addresses": [
+      {
+        "Type": "Permanent",
+        "Street": "",
+        "City": "Madison",
+        "County": "",
+        "State": "",
+        "Zip": "",
+        "Country": "United States of America",
+        "Email": "",
+        "Phones": [
+          {
+            "Type": "HOME",
+            "Number": ""
+          },
+          {
+            "Type": "WORK",
+            "Number": ""
+          }
+        ]
+      },
+      {
+        "Type": "Temporary",
+        "Street": "",
+        "City": "",
+        "County": "",
+        "State": "",
+        "Zip": "",
+        "Country": "",
+        "Email": "",
+        "Phones": [
+          {
+            "Type": "",
+            "Number": ""
+          }
+        ]
+      }
+    ],
+    "EmergencyContact": {
+      "Name": "Sally Tonga",
+      "Relation": "Sister",
+      "LegalGuardian": "",
+      "Phones": [
+        {
+          "Type": "HOME",
+          "Number": "608-921-8342"
+        },
+        {
+          "Type": "WORK",
+          "Number": ""
+        }
+      ]
+    },
+    "EmploymentInformation": {
+      "EmployerName": "Ehs Generic Employer",
+      "Occupation": "Draftsman",
+      "Phones": [
+        {
+          "Type": "",
+          "Number": ""
+        }
+      ]
+    },
+    "PCPs": [
+      {
+        "Name": "Physician Family Medicine, MD",
+        "ID": "9502",
+        "Type": "1"
+      }
+    ],
+    "NameComponents": {
+      "FullLastName": "Mychart Validate",
+      "LastName": "Mychart",
+      "LastNameFromSpouce": "",
+      "FirstName": "Theodore",
+      "MiddleName": "",
+      "LastNamePrefix": "",
+      "SpouceLastNamePrefix": "",
+      "Title": "Mr.",
+      "Suffix": "",
+      "Academic": "",
+      "PreferredName": "",
+      "PreferredNameType": "",
+      "SpouceLastNameFirst": "",
+      "GivenNameInitials": "",
+      "History": "MYCHARTVALIDATE,THEODORE[04/09/2008"
+    }
+  }

@@ -1,0 +1,201 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/R4/Patient?address=123%20Main%20St.&address-city=Madison&address-postalcode=53703&address-state=Wisconsin&family=Mychart&gender=Female&given=Allison&telecom=608-123-4567&_id=eJzlzKe3KPzAV5TtkxmNivQ3"
+    }
+  ],
+  "entry": [
+    {
+      "link": [
+        {
+          "relation": "self",
+          "url": "https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/R4/Patient/eJzlzKe3KPzAV5TtkxmNivQ3"
+        }
+      ],
+      "fullUrl": "https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/R4/Patient/eJzlzKe3KPzAV5TtkxmNivQ3",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "eJzlzKe3KPzAV5TtkxmNivQ3",
+        "extension": [
+          {
+            "valueCode": "F",
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex"
+          },
+          {
+            "extension": [
+              {
+                "valueCoding": {
+                  "system": "http://hl7.org/fhir/us/core/ValueSet/omb-race-category",
+                  "code": "UNK",
+                  "display": "Unknown"
+                },
+                "url": "ombCategory"
+              },
+              {
+                "valueString": "Unknown",
+                "url": "text"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "valueCoding": {
+                  "system": "http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category",
+                  "code": "UNK",
+                  "display": "Unknown"
+                },
+                "url": "ombCategory"
+              },
+              {
+                "valueString": "Unknown",
+                "url": "text"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "text": "EPIC"
+            },
+            "system": "urn:oid:1.2.840.114350.1.1",
+            "value": "E2731"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "EXTERNAL"
+            },
+            "value": "Z4572"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "FHIR"
+            },
+            "value": "TJgJ7wgwgI32QvHx3YBhDm4egjwdyhmAhfdtE7bQsPYYB"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "FHIR STU3"
+            },
+            "value": "eJzlzKe3KPzAV5TtkxmNivQ3"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "INTERNAL"
+            },
+            "value": "     Z4572"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "MRN"
+            },
+            "system": "urn:oid:1.2.840.114350.1.13.0.1.7.5.737384.14",
+            "value": "202497"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "MYCHARTLOGIN"
+            },
+            "value": "MYCHARTALLISON"
+          },
+          {
+            "use": "usual",
+            "type": {
+              "text": "WPRINTERNAL"
+            },
+            "value": "16"
+          },
+          {
+            "extension": [
+              {
+                "valueString": "391-50-5316",
+                "url": "http://hl7.org/fhir/StructureDefinition/rendered-value"
+              }
+            ],
+            "use": "usual",
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "391-50-5316"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "usual",
+            "text": "Allison Mychart",
+            "family": "Mychart",
+            "given": [
+              "Allison"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "608-123-4567",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1987-01-15",
+        "deceasedBoolean": false,
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "123 Main St."
+            ],
+            "city": "Madison",
+            "state": "WI",
+            "postalCode": "53703",
+            "country": "US"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Significant Other"
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/languages",
+                  "code": "fr",
+                  "display": "French"
+                }
+              ],
+              "text": "French"
+            },
+            "preferred": true
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "reference": "Practitioner/eM5CWtq15N0WJeuCet5bJlQ3",
+            "display": "Physician Family Medicine, MD"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/enRyWnSP963FYDpoks4NHOA3",
+          "display": "Epic Hospital System"
+        }
+      },
+      "search": {
+        "mode": "match"
+      }
+    }
+  ]
+}
