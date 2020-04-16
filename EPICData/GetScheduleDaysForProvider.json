@@ -1,0 +1,1550 @@
+{
+    "Departments": [
+      {
+        "Name": "EMC Family Medicine",
+        "LocationInstructions": [],
+        "IDs": [
+          {
+            "ID": "LABCORP123",
+            "Type": "#74"
+          },
+          {
+            "ID": "QUEST123",
+            "Type": "#76"
+          },
+          {
+            "ID": "10501101",
+            "Type": "DEPID"
+          },
+          {
+            "ID": "10501101",
+            "Type": "Internal"
+          },
+          {
+            "ID": "10501101",
+            "Type": "External"
+          }
+        ],
+        "Address": {
+          "StreetAddress": [
+            "123 Anywhere Street"
+          ],
+          "City": "VERONA",
+          "PostalCode": "53593-9179",
+          "HouseNumber": "",
+          "State": {
+            "Number": "50",
+            "Title": "Wisconsin",
+            "Abbreviation": "WI"
+          },
+          "Country": {
+            "Number": "1",
+            "Title": "United States of America",
+            "Abbreviation": "US"
+          },
+          "District": {
+            "Number": "",
+            "Title": "",
+            "Abbreviation": ""
+          },
+          "County": {
+            "Number": "467",
+            "Title": "DANE",
+            "Abbreviation": "DANE"
+          }
+        },
+        "Specialty": {
+          "Number": "9",
+          "Title": "Family Medicine",
+          "Abbreviation": "Fam Med",
+          "ExternalName": ""
+        },
+        "OfficialTimeZone": {
+          "Number": "5",
+          "Title": "America/Chicago",
+          "Abbreviation": "America/CHI"
+        },
+        "Phones": [
+          {
+            "Type": "General",
+            "Number": "555-555-5555"
+          },
+          {
+            "Type": "Scheduling",
+            "Number": ""
+          }
+        ]
+      }
+    ],
+    "Provider": {
+      "DisplayName": "Family Medicine Physician, MD",
+      "IDs": [
+        {
+          "ID": "1000",
+          "Type": "PROVID"
+        },
+        {
+          "ID": "6011",
+          "Type": "SPI"
+        },
+        {
+          "ID": "1627363736",
+          "Type": "NPI"
+        },
+        {
+          "ID": "207Q00000X",
+          "Type": "TAXSER"
+        },
+        {
+          "ID": "   E1000",
+          "Type": "Internal"
+        },
+        {
+          "ID": "E1000",
+          "Type": "External"
+        }
+      ]
+    },
+    "VisitTypes": [
+      {
+        "Name": "OFFICE VISIT",
+        "DisplayName": "Office Visit",
+        "PatientInstructions": [
+          "Please bring any insurance information and a copayment if required by your insurance company."
+        ],
+        "IDs": [
+          {
+            "ID": "    1004",
+            "Type": "Internal"
+          },
+          {
+            "ID": "1004",
+            "Type": "External"
+          }
+        ]
+      }
+    ],
+    "ScheduleDays": [
+      {
+        "Date": "2020-04-15",
+        "Slots": [],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-16",
+        "Slots": [
+          {
+            "Time": "04:00:00",
+            "DisplayTime": "04:00:00",
+            "ArrivalTime": "04:00:00"
+          },
+          {
+            "Time": "04:15:00",
+            "DisplayTime": "04:15:00",
+            "ArrivalTime": "04:15:00"
+          },
+          {
+            "Time": "04:30:00",
+            "DisplayTime": "04:30:00",
+            "ArrivalTime": "04:30:00"
+          },
+          {
+            "Time": "04:45:00",
+            "DisplayTime": "04:45:00",
+            "ArrivalTime": "04:45:00"
+          },
+          {
+            "Time": "05:00:00",
+            "DisplayTime": "05:00:00",
+            "ArrivalTime": "05:00:00"
+          },
+          {
+            "Time": "05:15:00",
+            "DisplayTime": "05:15:00",
+            "ArrivalTime": "05:15:00"
+          },
+          {
+            "Time": "05:30:00",
+            "DisplayTime": "05:30:00",
+            "ArrivalTime": "05:30:00"
+          },
+          {
+            "Time": "05:45:00",
+            "DisplayTime": "05:45:00",
+            "ArrivalTime": "05:45:00"
+          },
+          {
+            "Time": "06:00:00",
+            "DisplayTime": "06:00:00",
+            "ArrivalTime": "06:00:00"
+          },
+          {
+            "Time": "06:15:00",
+            "DisplayTime": "06:15:00",
+            "ArrivalTime": "06:15:00"
+          },
+          {
+            "Time": "06:30:00",
+            "DisplayTime": "06:30:00",
+            "ArrivalTime": "06:30:00"
+          },
+          {
+            "Time": "06:45:00",
+            "DisplayTime": "06:45:00",
+            "ArrivalTime": "06:45:00"
+          },
+          {
+            "Time": "07:00:00",
+            "DisplayTime": "07:00:00",
+            "ArrivalTime": "07:00:00"
+          },
+          {
+            "Time": "07:15:00",
+            "DisplayTime": "07:15:00",
+            "ArrivalTime": "07:15:00"
+          },
+          {
+            "Time": "07:30:00",
+            "DisplayTime": "07:30:00",
+            "ArrivalTime": "07:30:00"
+          },
+          {
+            "Time": "08:00:00",
+            "DisplayTime": "08:00:00",
+            "ArrivalTime": "08:00:00"
+          },
+          {
+            "Time": "09:00:00",
+            "DisplayTime": "09:00:00",
+            "ArrivalTime": "09:00:00"
+          },
+          {
+            "Time": "09:15:00",
+            "DisplayTime": "09:15:00",
+            "ArrivalTime": "09:15:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "13:00:00",
+            "DisplayTime": "13:00:00",
+            "ArrivalTime": "13:00:00"
+          },
+          {
+            "Time": "13:15:00",
+            "DisplayTime": "13:15:00",
+            "ArrivalTime": "13:15:00"
+          },
+          {
+            "Time": "13:30:00",
+            "DisplayTime": "13:30:00",
+            "ArrivalTime": "13:30:00"
+          },
+          {
+            "Time": "13:45:00",
+            "DisplayTime": "13:45:00",
+            "ArrivalTime": "13:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "19:15:00",
+            "DisplayTime": "19:15:00",
+            "ArrivalTime": "19:15:00"
+          },
+          {
+            "Time": "19:30:00",
+            "DisplayTime": "19:30:00",
+            "ArrivalTime": "19:30:00"
+          },
+          {
+            "Time": "19:45:00",
+            "DisplayTime": "19:45:00",
+            "ArrivalTime": "19:45:00"
+          },
+          {
+            "Time": "20:00:00",
+            "DisplayTime": "20:00:00",
+            "ArrivalTime": "20:00:00"
+          },
+          {
+            "Time": "20:15:00",
+            "DisplayTime": "20:15:00",
+            "ArrivalTime": "20:15:00"
+          },
+          {
+            "Time": "20:30:00",
+            "DisplayTime": "20:30:00",
+            "ArrivalTime": "20:30:00"
+          },
+          {
+            "Time": "20:45:00",
+            "DisplayTime": "20:45:00",
+            "ArrivalTime": "20:45:00"
+          },
+          {
+            "Time": "21:00:00",
+            "DisplayTime": "21:00:00",
+            "ArrivalTime": "21:00:00"
+          },
+          {
+            "Time": "21:15:00",
+            "DisplayTime": "21:15:00",
+            "ArrivalTime": "21:15:00"
+          },
+          {
+            "Time": "21:30:00",
+            "DisplayTime": "21:30:00",
+            "ArrivalTime": "21:30:00"
+          },
+          {
+            "Time": "21:45:00",
+            "DisplayTime": "21:45:00",
+            "ArrivalTime": "21:45:00"
+          },
+          {
+            "Time": "22:00:00",
+            "DisplayTime": "22:00:00",
+            "ArrivalTime": "22:00:00"
+          },
+          {
+            "Time": "22:15:00",
+            "DisplayTime": "22:15:00",
+            "ArrivalTime": "22:15:00"
+          },
+          {
+            "Time": "22:30:00",
+            "DisplayTime": "22:30:00",
+            "ArrivalTime": "22:30:00"
+          },
+          {
+            "Time": "22:45:00",
+            "DisplayTime": "22:45:00",
+            "ArrivalTime": "22:45:00"
+          },
+          {
+            "Time": "23:00:00",
+            "DisplayTime": "23:00:00",
+            "ArrivalTime": "23:00:00"
+          },
+          {
+            "Time": "23:15:00",
+            "DisplayTime": "23:15:00",
+            "ArrivalTime": "23:15:00"
+          },
+          {
+            "Time": "23:30:00",
+            "DisplayTime": "23:30:00",
+            "ArrivalTime": "23:30:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-17",
+        "Slots": [
+          {
+            "Time": "03:15:00",
+            "DisplayTime": "03:15:00",
+            "ArrivalTime": "03:15:00"
+          },
+          {
+            "Time": "03:30:00",
+            "DisplayTime": "03:30:00",
+            "ArrivalTime": "03:30:00"
+          },
+          {
+            "Time": "03:45:00",
+            "DisplayTime": "03:45:00",
+            "ArrivalTime": "03:45:00"
+          },
+          {
+            "Time": "04:00:00",
+            "DisplayTime": "04:00:00",
+            "ArrivalTime": "04:00:00"
+          },
+          {
+            "Time": "04:15:00",
+            "DisplayTime": "04:15:00",
+            "ArrivalTime": "04:15:00"
+          },
+          {
+            "Time": "04:30:00",
+            "DisplayTime": "04:30:00",
+            "ArrivalTime": "04:30:00"
+          },
+          {
+            "Time": "04:45:00",
+            "DisplayTime": "04:45:00",
+            "ArrivalTime": "04:45:00"
+          },
+          {
+            "Time": "05:00:00",
+            "DisplayTime": "05:00:00",
+            "ArrivalTime": "05:00:00"
+          },
+          {
+            "Time": "05:15:00",
+            "DisplayTime": "05:15:00",
+            "ArrivalTime": "05:15:00"
+          },
+          {
+            "Time": "05:30:00",
+            "DisplayTime": "05:30:00",
+            "ArrivalTime": "05:30:00"
+          },
+          {
+            "Time": "05:45:00",
+            "DisplayTime": "05:45:00",
+            "ArrivalTime": "05:45:00"
+          },
+          {
+            "Time": "06:00:00",
+            "DisplayTime": "06:00:00",
+            "ArrivalTime": "06:00:00"
+          },
+          {
+            "Time": "06:15:00",
+            "DisplayTime": "06:15:00",
+            "ArrivalTime": "06:15:00"
+          },
+          {
+            "Time": "06:30:00",
+            "DisplayTime": "06:30:00",
+            "ArrivalTime": "06:30:00"
+          },
+          {
+            "Time": "06:45:00",
+            "DisplayTime": "06:45:00",
+            "ArrivalTime": "06:45:00"
+          },
+          {
+            "Time": "07:00:00",
+            "DisplayTime": "07:00:00",
+            "ArrivalTime": "07:00:00"
+          },
+          {
+            "Time": "08:00:00",
+            "DisplayTime": "08:00:00",
+            "ArrivalTime": "08:00:00"
+          },
+          {
+            "Time": "08:15:00",
+            "DisplayTime": "08:15:00",
+            "ArrivalTime": "08:15:00"
+          },
+          {
+            "Time": "08:30:00",
+            "DisplayTime": "08:30:00",
+            "ArrivalTime": "08:30:00"
+          },
+          {
+            "Time": "08:45:00",
+            "DisplayTime": "08:45:00",
+            "ArrivalTime": "08:45:00"
+          },
+          {
+            "Time": "11:00:00",
+            "DisplayTime": "11:00:00",
+            "ArrivalTime": "11:00:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "15:45:00",
+            "DisplayTime": "15:45:00",
+            "ArrivalTime": "15:45:00"
+          },
+          {
+            "Time": "18:15:00",
+            "DisplayTime": "18:15:00",
+            "ArrivalTime": "18:15:00"
+          },
+          {
+            "Time": "18:30:00",
+            "DisplayTime": "18:30:00",
+            "ArrivalTime": "18:30:00"
+          },
+          {
+            "Time": "18:45:00",
+            "DisplayTime": "18:45:00",
+            "ArrivalTime": "18:45:00"
+          },
+          {
+            "Time": "19:00:00",
+            "DisplayTime": "19:00:00",
+            "ArrivalTime": "19:00:00"
+          },
+          {
+            "Time": "19:15:00",
+            "DisplayTime": "19:15:00",
+            "ArrivalTime": "19:15:00"
+          },
+          {
+            "Time": "19:30:00",
+            "DisplayTime": "19:30:00",
+            "ArrivalTime": "19:30:00"
+          },
+          {
+            "Time": "19:45:00",
+            "DisplayTime": "19:45:00",
+            "ArrivalTime": "19:45:00"
+          },
+          {
+            "Time": "20:00:00",
+            "DisplayTime": "20:00:00",
+            "ArrivalTime": "20:00:00"
+          },
+          {
+            "Time": "20:15:00",
+            "DisplayTime": "20:15:00",
+            "ArrivalTime": "20:15:00"
+          },
+          {
+            "Time": "20:30:00",
+            "DisplayTime": "20:30:00",
+            "ArrivalTime": "20:30:00"
+          },
+          {
+            "Time": "20:45:00",
+            "DisplayTime": "20:45:00",
+            "ArrivalTime": "20:45:00"
+          },
+          {
+            "Time": "21:00:00",
+            "DisplayTime": "21:00:00",
+            "ArrivalTime": "21:00:00"
+          },
+          {
+            "Time": "21:15:00",
+            "DisplayTime": "21:15:00",
+            "ArrivalTime": "21:15:00"
+          },
+          {
+            "Time": "21:30:00",
+            "DisplayTime": "21:30:00",
+            "ArrivalTime": "21:30:00"
+          },
+          {
+            "Time": "21:45:00",
+            "DisplayTime": "21:45:00",
+            "ArrivalTime": "21:45:00"
+          },
+          {
+            "Time": "22:00:00",
+            "DisplayTime": "22:00:00",
+            "ArrivalTime": "22:00:00"
+          },
+          {
+            "Time": "22:15:00",
+            "DisplayTime": "22:15:00",
+            "ArrivalTime": "22:15:00"
+          },
+          {
+            "Time": "22:30:00",
+            "DisplayTime": "22:30:00",
+            "ArrivalTime": "22:30:00"
+          },
+          {
+            "Time": "22:45:00",
+            "DisplayTime": "22:45:00",
+            "ArrivalTime": "22:45:00"
+          },
+          {
+            "Time": "23:00:00",
+            "DisplayTime": "23:00:00",
+            "ArrivalTime": "23:00:00"
+          },
+          {
+            "Time": "23:15:00",
+            "DisplayTime": "23:15:00",
+            "ArrivalTime": "23:15:00"
+          },
+          {
+            "Time": "23:30:00",
+            "DisplayTime": "23:30:00",
+            "ArrivalTime": "23:30:00"
+          },
+          {
+            "Time": "23:45:00",
+            "DisplayTime": "23:45:00",
+            "ArrivalTime": "23:45:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-18",
+        "Slots": [
+          {
+            "Time": "03:30:00",
+            "DisplayTime": "03:30:00",
+            "ArrivalTime": "03:30:00"
+          },
+          {
+            "Time": "03:45:00",
+            "DisplayTime": "03:45:00",
+            "ArrivalTime": "03:45:00"
+          },
+          {
+            "Time": "04:00:00",
+            "DisplayTime": "04:00:00",
+            "ArrivalTime": "04:00:00"
+          },
+          {
+            "Time": "04:15:00",
+            "DisplayTime": "04:15:00",
+            "ArrivalTime": "04:15:00"
+          },
+          {
+            "Time": "04:30:00",
+            "DisplayTime": "04:30:00",
+            "ArrivalTime": "04:30:00"
+          },
+          {
+            "Time": "04:45:00",
+            "DisplayTime": "04:45:00",
+            "ArrivalTime": "04:45:00"
+          },
+          {
+            "Time": "05:00:00",
+            "DisplayTime": "05:00:00",
+            "ArrivalTime": "05:00:00"
+          },
+          {
+            "Time": "05:15:00",
+            "DisplayTime": "05:15:00",
+            "ArrivalTime": "05:15:00"
+          },
+          {
+            "Time": "05:30:00",
+            "DisplayTime": "05:30:00",
+            "ArrivalTime": "05:30:00"
+          },
+          {
+            "Time": "05:45:00",
+            "DisplayTime": "05:45:00",
+            "ArrivalTime": "05:45:00"
+          },
+          {
+            "Time": "06:00:00",
+            "DisplayTime": "06:00:00",
+            "ArrivalTime": "06:00:00"
+          },
+          {
+            "Time": "06:15:00",
+            "DisplayTime": "06:15:00",
+            "ArrivalTime": "06:15:00"
+          },
+          {
+            "Time": "06:30:00",
+            "DisplayTime": "06:30:00",
+            "ArrivalTime": "06:30:00"
+          },
+          {
+            "Time": "06:45:00",
+            "DisplayTime": "06:45:00",
+            "ArrivalTime": "06:45:00"
+          },
+          {
+            "Time": "07:00:00",
+            "DisplayTime": "07:00:00",
+            "ArrivalTime": "07:00:00"
+          },
+          {
+            "Time": "07:15:00",
+            "DisplayTime": "07:15:00",
+            "ArrivalTime": "07:15:00"
+          },
+          {
+            "Time": "08:15:00",
+            "DisplayTime": "08:15:00",
+            "ArrivalTime": "08:15:00"
+          },
+          {
+            "Time": "08:30:00",
+            "DisplayTime": "08:30:00",
+            "ArrivalTime": "08:30:00"
+          },
+          {
+            "Time": "08:45:00",
+            "DisplayTime": "08:45:00",
+            "ArrivalTime": "08:45:00"
+          },
+          {
+            "Time": "09:00:00",
+            "DisplayTime": "09:00:00",
+            "ArrivalTime": "09:00:00"
+          },
+          {
+            "Time": "09:15:00",
+            "DisplayTime": "09:15:00",
+            "ArrivalTime": "09:15:00"
+          },
+          {
+            "Time": "09:30:00",
+            "DisplayTime": "09:30:00",
+            "ArrivalTime": "09:30:00"
+          },
+          {
+            "Time": "09:45:00",
+            "DisplayTime": "09:45:00",
+            "ArrivalTime": "09:45:00"
+          },
+          {
+            "Time": "10:00:00",
+            "DisplayTime": "10:00:00",
+            "ArrivalTime": "10:00:00"
+          },
+          {
+            "Time": "10:15:00",
+            "DisplayTime": "10:15:00",
+            "ArrivalTime": "10:15:00"
+          },
+          {
+            "Time": "10:30:00",
+            "DisplayTime": "10:30:00",
+            "ArrivalTime": "10:30:00"
+          },
+          {
+            "Time": "10:45:00",
+            "DisplayTime": "10:45:00",
+            "ArrivalTime": "10:45:00"
+          },
+          {
+            "Time": "11:00:00",
+            "DisplayTime": "11:00:00",
+            "ArrivalTime": "11:00:00"
+          },
+          {
+            "Time": "11:15:00",
+            "DisplayTime": "11:15:00",
+            "ArrivalTime": "11:15:00"
+          },
+          {
+            "Time": "11:30:00",
+            "DisplayTime": "11:30:00",
+            "ArrivalTime": "11:30:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "12:00:00",
+            "DisplayTime": "12:00:00",
+            "ArrivalTime": "12:00:00"
+          },
+          {
+            "Time": "12:15:00",
+            "DisplayTime": "12:15:00",
+            "ArrivalTime": "12:15:00"
+          },
+          {
+            "Time": "12:30:00",
+            "DisplayTime": "12:30:00",
+            "ArrivalTime": "12:30:00"
+          },
+          {
+            "Time": "12:45:00",
+            "DisplayTime": "12:45:00",
+            "ArrivalTime": "12:45:00"
+          },
+          {
+            "Time": "13:00:00",
+            "DisplayTime": "13:00:00",
+            "ArrivalTime": "13:00:00"
+          },
+          {
+            "Time": "13:15:00",
+            "DisplayTime": "13:15:00",
+            "ArrivalTime": "13:15:00"
+          },
+          {
+            "Time": "13:30:00",
+            "DisplayTime": "13:30:00",
+            "ArrivalTime": "13:30:00"
+          },
+          {
+            "Time": "13:45:00",
+            "DisplayTime": "13:45:00",
+            "ArrivalTime": "13:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "15:45:00",
+            "DisplayTime": "15:45:00",
+            "ArrivalTime": "15:45:00"
+          },
+          {
+            "Time": "16:00:00",
+            "DisplayTime": "16:00:00",
+            "ArrivalTime": "16:00:00"
+          },
+          {
+            "Time": "16:15:00",
+            "DisplayTime": "16:15:00",
+            "ArrivalTime": "16:15:00"
+          },
+          {
+            "Time": "16:30:00",
+            "DisplayTime": "16:30:00",
+            "ArrivalTime": "16:30:00"
+          },
+          {
+            "Time": "16:45:00",
+            "DisplayTime": "16:45:00",
+            "ArrivalTime": "16:45:00"
+          },
+          {
+            "Time": "18:45:00",
+            "DisplayTime": "18:45:00",
+            "ArrivalTime": "18:45:00"
+          },
+          {
+            "Time": "19:00:00",
+            "DisplayTime": "19:00:00",
+            "ArrivalTime": "19:00:00"
+          },
+          {
+            "Time": "19:15:00",
+            "DisplayTime": "19:15:00",
+            "ArrivalTime": "19:15:00"
+          },
+          {
+            "Time": "19:30:00",
+            "DisplayTime": "19:30:00",
+            "ArrivalTime": "19:30:00"
+          },
+          {
+            "Time": "19:45:00",
+            "DisplayTime": "19:45:00",
+            "ArrivalTime": "19:45:00"
+          },
+          {
+            "Time": "20:00:00",
+            "DisplayTime": "20:00:00",
+            "ArrivalTime": "20:00:00"
+          },
+          {
+            "Time": "20:15:00",
+            "DisplayTime": "20:15:00",
+            "ArrivalTime": "20:15:00"
+          },
+          {
+            "Time": "20:30:00",
+            "DisplayTime": "20:30:00",
+            "ArrivalTime": "20:30:00"
+          },
+          {
+            "Time": "20:45:00",
+            "DisplayTime": "20:45:00",
+            "ArrivalTime": "20:45:00"
+          },
+          {
+            "Time": "21:00:00",
+            "DisplayTime": "21:00:00",
+            "ArrivalTime": "21:00:00"
+          },
+          {
+            "Time": "21:15:00",
+            "DisplayTime": "21:15:00",
+            "ArrivalTime": "21:15:00"
+          },
+          {
+            "Time": "21:30:00",
+            "DisplayTime": "21:30:00",
+            "ArrivalTime": "21:30:00"
+          },
+          {
+            "Time": "21:45:00",
+            "DisplayTime": "21:45:00",
+            "ArrivalTime": "21:45:00"
+          },
+          {
+            "Time": "22:00:00",
+            "DisplayTime": "22:00:00",
+            "ArrivalTime": "22:00:00"
+          },
+          {
+            "Time": "22:15:00",
+            "DisplayTime": "22:15:00",
+            "ArrivalTime": "22:15:00"
+          },
+          {
+            "Time": "22:30:00",
+            "DisplayTime": "22:30:00",
+            "ArrivalTime": "22:30:00"
+          },
+          {
+            "Time": "22:45:00",
+            "DisplayTime": "22:45:00",
+            "ArrivalTime": "22:45:00"
+          },
+          {
+            "Time": "23:00:00",
+            "DisplayTime": "23:00:00",
+            "ArrivalTime": "23:00:00"
+          },
+          {
+            "Time": "23:15:00",
+            "DisplayTime": "23:15:00",
+            "ArrivalTime": "23:15:00"
+          },
+          {
+            "Time": "23:30:00",
+            "DisplayTime": "23:30:00",
+            "ArrivalTime": "23:30:00"
+          },
+          {
+            "Time": "23:45:00",
+            "DisplayTime": "23:45:00",
+            "ArrivalTime": "23:45:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-19",
+        "Slots": [
+          {
+            "Time": "08:00:00",
+            "DisplayTime": "08:00:00",
+            "ArrivalTime": "08:00:00"
+          },
+          {
+            "Time": "08:15:00",
+            "DisplayTime": "08:15:00",
+            "ArrivalTime": "08:15:00"
+          },
+          {
+            "Time": "08:30:00",
+            "DisplayTime": "08:30:00",
+            "ArrivalTime": "08:30:00"
+          },
+          {
+            "Time": "08:45:00",
+            "DisplayTime": "08:45:00",
+            "ArrivalTime": "08:45:00"
+          },
+          {
+            "Time": "09:00:00",
+            "DisplayTime": "09:00:00",
+            "ArrivalTime": "09:00:00"
+          },
+          {
+            "Time": "09:15:00",
+            "DisplayTime": "09:15:00",
+            "ArrivalTime": "09:15:00"
+          },
+          {
+            "Time": "09:30:00",
+            "DisplayTime": "09:30:00",
+            "ArrivalTime": "09:30:00"
+          },
+          {
+            "Time": "09:45:00",
+            "DisplayTime": "09:45:00",
+            "ArrivalTime": "09:45:00"
+          },
+          {
+            "Time": "10:00:00",
+            "DisplayTime": "10:00:00",
+            "ArrivalTime": "10:00:00"
+          },
+          {
+            "Time": "10:15:00",
+            "DisplayTime": "10:15:00",
+            "ArrivalTime": "10:15:00"
+          },
+          {
+            "Time": "10:30:00",
+            "DisplayTime": "10:30:00",
+            "ArrivalTime": "10:30:00"
+          },
+          {
+            "Time": "10:45:00",
+            "DisplayTime": "10:45:00",
+            "ArrivalTime": "10:45:00"
+          },
+          {
+            "Time": "11:00:00",
+            "DisplayTime": "11:00:00",
+            "ArrivalTime": "11:00:00"
+          },
+          {
+            "Time": "11:15:00",
+            "DisplayTime": "11:15:00",
+            "ArrivalTime": "11:15:00"
+          },
+          {
+            "Time": "11:30:00",
+            "DisplayTime": "11:30:00",
+            "ArrivalTime": "11:30:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "12:00:00",
+            "DisplayTime": "12:00:00",
+            "ArrivalTime": "12:00:00"
+          },
+          {
+            "Time": "12:15:00",
+            "DisplayTime": "12:15:00",
+            "ArrivalTime": "12:15:00"
+          },
+          {
+            "Time": "12:30:00",
+            "DisplayTime": "12:30:00",
+            "ArrivalTime": "12:30:00"
+          },
+          {
+            "Time": "12:45:00",
+            "DisplayTime": "12:45:00",
+            "ArrivalTime": "12:45:00"
+          },
+          {
+            "Time": "13:00:00",
+            "DisplayTime": "13:00:00",
+            "ArrivalTime": "13:00:00"
+          },
+          {
+            "Time": "13:15:00",
+            "DisplayTime": "13:15:00",
+            "ArrivalTime": "13:15:00"
+          },
+          {
+            "Time": "13:30:00",
+            "DisplayTime": "13:30:00",
+            "ArrivalTime": "13:30:00"
+          },
+          {
+            "Time": "13:45:00",
+            "DisplayTime": "13:45:00",
+            "ArrivalTime": "13:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "15:45:00",
+            "DisplayTime": "15:45:00",
+            "ArrivalTime": "15:45:00"
+          },
+          {
+            "Time": "16:00:00",
+            "DisplayTime": "16:00:00",
+            "ArrivalTime": "16:00:00"
+          },
+          {
+            "Time": "16:15:00",
+            "DisplayTime": "16:15:00",
+            "ArrivalTime": "16:15:00"
+          },
+          {
+            "Time": "16:30:00",
+            "DisplayTime": "16:30:00",
+            "ArrivalTime": "16:30:00"
+          },
+          {
+            "Time": "16:45:00",
+            "DisplayTime": "16:45:00",
+            "ArrivalTime": "16:45:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-20",
+        "Slots": [
+          {
+            "Time": "08:00:00",
+            "DisplayTime": "08:00:00",
+            "ArrivalTime": "08:00:00"
+          },
+          {
+            "Time": "08:15:00",
+            "DisplayTime": "08:15:00",
+            "ArrivalTime": "08:15:00"
+          },
+          {
+            "Time": "08:30:00",
+            "DisplayTime": "08:30:00",
+            "ArrivalTime": "08:30:00"
+          },
+          {
+            "Time": "08:45:00",
+            "DisplayTime": "08:45:00",
+            "ArrivalTime": "08:45:00"
+          },
+          {
+            "Time": "11:00:00",
+            "DisplayTime": "11:00:00",
+            "ArrivalTime": "11:00:00"
+          },
+          {
+            "Time": "11:15:00",
+            "DisplayTime": "11:15:00",
+            "ArrivalTime": "11:15:00"
+          },
+          {
+            "Time": "11:30:00",
+            "DisplayTime": "11:30:00",
+            "ArrivalTime": "11:30:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "15:45:00",
+            "DisplayTime": "15:45:00",
+            "ArrivalTime": "15:45:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-21",
+        "Slots": [
+          {
+            "Time": "08:00:00",
+            "DisplayTime": "08:00:00",
+            "ArrivalTime": "08:00:00"
+          },
+          {
+            "Time": "08:15:00",
+            "DisplayTime": "08:15:00",
+            "ArrivalTime": "08:15:00"
+          },
+          {
+            "Time": "08:30:00",
+            "DisplayTime": "08:30:00",
+            "ArrivalTime": "08:30:00"
+          },
+          {
+            "Time": "08:45:00",
+            "DisplayTime": "08:45:00",
+            "ArrivalTime": "08:45:00"
+          },
+          {
+            "Time": "11:00:00",
+            "DisplayTime": "11:00:00",
+            "ArrivalTime": "11:00:00"
+          },
+          {
+            "Time": "11:15:00",
+            "DisplayTime": "11:15:00",
+            "ArrivalTime": "11:15:00"
+          },
+          {
+            "Time": "11:30:00",
+            "DisplayTime": "11:30:00",
+            "ArrivalTime": "11:30:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "15:45:00",
+            "DisplayTime": "15:45:00",
+            "ArrivalTime": "15:45:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      },
+      {
+        "Date": "2020-04-22",
+        "Slots": [
+          {
+            "Time": "08:00:00",
+            "DisplayTime": "08:00:00",
+            "ArrivalTime": "08:00:00"
+          },
+          {
+            "Time": "08:15:00",
+            "DisplayTime": "08:15:00",
+            "ArrivalTime": "08:15:00"
+          },
+          {
+            "Time": "08:30:00",
+            "DisplayTime": "08:30:00",
+            "ArrivalTime": "08:30:00"
+          },
+          {
+            "Time": "08:45:00",
+            "DisplayTime": "08:45:00",
+            "ArrivalTime": "08:45:00"
+          },
+          {
+            "Time": "11:00:00",
+            "DisplayTime": "11:00:00",
+            "ArrivalTime": "11:00:00"
+          },
+          {
+            "Time": "11:15:00",
+            "DisplayTime": "11:15:00",
+            "ArrivalTime": "11:15:00"
+          },
+          {
+            "Time": "11:30:00",
+            "DisplayTime": "11:30:00",
+            "ArrivalTime": "11:30:00"
+          },
+          {
+            "Time": "11:45:00",
+            "DisplayTime": "11:45:00",
+            "ArrivalTime": "11:45:00"
+          },
+          {
+            "Time": "14:00:00",
+            "DisplayTime": "14:00:00",
+            "ArrivalTime": "14:00:00"
+          },
+          {
+            "Time": "14:15:00",
+            "DisplayTime": "14:15:00",
+            "ArrivalTime": "14:15:00"
+          },
+          {
+            "Time": "14:30:00",
+            "DisplayTime": "14:30:00",
+            "ArrivalTime": "14:30:00"
+          },
+          {
+            "Time": "14:45:00",
+            "DisplayTime": "14:45:00",
+            "ArrivalTime": "14:45:00"
+          },
+          {
+            "Time": "15:00:00",
+            "DisplayTime": "15:00:00",
+            "ArrivalTime": "15:00:00"
+          },
+          {
+            "Time": "15:15:00",
+            "DisplayTime": "15:15:00",
+            "ArrivalTime": "15:15:00"
+          },
+          {
+            "Time": "15:30:00",
+            "DisplayTime": "15:30:00",
+            "ArrivalTime": "15:30:00"
+          },
+          {
+            "Time": "15:45:00",
+            "DisplayTime": "15:45:00",
+            "ArrivalTime": "15:45:00"
+          }
+        ],
+        "Provider": {
+          "ID": "E1000",
+          "Type": "External"
+        },
+        "Department": {
+          "ID": "10501101",
+          "Type": "External"
+        },
+        "VisitType": {
+          "ID": "1004",
+          "Type": "External"
+        }
+      }
+    ]
+  }
+  

@@ -4,22 +4,28 @@ import Constants from 'expo-constants';
 import {connect} from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
+
 import * as actions from '../store/actions';
+
+import * as colors from '../constants/colors';
 
 import PCPs from '../Lists/PCPs';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const statusBarHeight = Constants.statusBarHeight;
 
-function PCPInList({firstName, lastName, img, getSchedule}) {
+const ITEM_HEIGHT = 80;
+
+function PCPInList({firstName, lastName, img, press, title}) {
 
     return (
         <View style={styles.pcpView}>
             <View style={styles.nameImgWrapper}>
                 {img ? <Image style={{ width: 60, height: 60, borderRadius: 30, marginLeft: 6, marginRight: 12 }} source={{ uri: img }} /> : <MaterialCommunityIcons style={{ marginLeft: 12, fontSize: 40, }} name="doctor" color="grey" />}
-                <Text>{firstName + ' ' + lastName}</Text>
+                <Text>{firstName + ' ' + lastName + ', ' + title}</Text>
             </View>
-            <TouchableOpacity style={styles.bookTouchableOpacity} onPress={() => getSchedule("here")}><Text style={styles.bookText}>Book</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.bookTouchableOpacity} onPress={() => press(firstName, lastName, img, title)}><Text style={styles.bookText}>Book</Text></TouchableOpacity>
         </View>
     )
 }
@@ -27,7 +33,7 @@ function PCPInList({firstName, lastName, img, getSchedule}) {
 class SchedulingLanding extends Component {
     
     RenderFlatListStickyHeader = () => {
-        return <View style={{ width: "100%",  height: 30, alignItems: 'center', backgroundColor: 'white' }}><Text>Header</Text></View>
+        return <View style={{ width: "100%",  height: 0, alignItems: 'center', backgroundColor: 'white' }}></View>
     }
     FlatListItemSeparator = () => {
         return (
@@ -41,8 +47,17 @@ class SchedulingLanding extends Component {
         );
       }
 
+      pressed = (firstName, lastName, img, title) =>{
+          console.log("pressed params", firstName, lastName, img, title);
+        this.props.navigation.navigate('Provider Availability', {
+            firstName,
+            lastName,
+            img,
+            title,
+        });
+    }
+
     render() {
-        console.log("redux schedule", this.props.schedule)
         return (
             <SafeAreaView style={styles.scrollContainer}>
 
@@ -50,12 +65,12 @@ class SchedulingLanding extends Component {
                     data={PCPs} 
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     style={styles.scrollContainer} 
-                    renderItem={({item}) => <PCPInList firstName={item.firstName} lastName={item.lastName} img={item.img} getSchedule={this.props.getSchedule}/>}
+                    renderItem={({item}) => <PCPInList firstName={item.firstName} lastName={item.lastName} title={item.title} press={this.pressed} img={item.img} getSchedule={this.props.getSchedule}/>}
                     keyExtractor={item => item.DEA}
                     ListHeaderComponent={this.RenderFlatListStickyHeader}
-                    stickyHeaderIndices={[0, 8, 20]}
+                    // stickyHeaderIndices={[1, 8]}
                     getItemLayout={(data, index)=> (
-                        {length: 80, offset:80 * index  , index}
+                        {length: ITEM_HEIGHT, offset:ITEM_HEIGHT * index  , index}
                     )}
                 />
             </SafeAreaView>
@@ -79,7 +94,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(SchedulingLanding);
 
 const styles = StyleSheet.create({
     timeHeader:{
-        height: 12,
+        height: 0,
         color: "#eee",
     },
     nameImgWrapper:{
@@ -90,7 +105,7 @@ const styles = StyleSheet.create({
     },  
     scrollContainer:{
         flex: 1,
-        marginTop: statusBarHeight,
+        marginTop: 0,
         paddingTop: 0,
         paddingLeft: 0,
     },
@@ -101,18 +116,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingTop: 10,
         paddingLeft: 10,
-        height: 80,
+        height: ITEM_HEIGHT,
         alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#fff'
     },
     bookTouchableOpacity:{
-        padding: 8,
-        backgroundColor: '#3BC6A0',
+        padding: 12,
+        backgroundColor: colors.THEME_GREEN,
         borderRadius: 4,
-        marginRight: 12,
+        marginRight: 18,
     },
     bookText:{
+        fontSize: res.scaleFont(18),
         color: 'white',
     }
 })

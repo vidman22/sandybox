@@ -3,6 +3,9 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Provider } from 'react-redux';
 import ErrorBoundary from './components/ErrorBoundary';
 import SchedulingLanding from './components/SchedulingLanding';
+import EpicGetOpenSlots from './components/EpicGetOpenSlots';
+import ByTimeOrProvider from './components/ByTimeOrProvider';
+import ProviderAvailability from './components/ProviderAvailability';
 import Team from './components/Team';
 import Profile from './components/Profile';
 import { createStore, applyMiddleware } from 'redux';
@@ -27,11 +30,14 @@ export default function App() {
       
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen name="Schedule" component={ByTimeOrProvider} />
+          <Stack.Screen name="Open Slots" component={EpicGetOpenSlots} />
+          <Stack.Screen name="Provider Schedule" component={SchedulingLanding} />
+          <Stack.Screen name="Provider Availability" component={ProviderAvailability} />
           <Stack.Screen name="Our Team" component={Team} />
           <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>
       </NavigationContainer>
-        {/* <SchedulingLanding /> */}
     </Provider>
   );
 }
