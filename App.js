@@ -8,6 +8,7 @@ import ByTimeOrProvider from './components/ByTimeOrProvider';
 import ProviderAvailability from './components/ProviderAvailability';
 import Team from './components/Team';
 import Profile from './components/Profile';
+import ReasonForVisit from './components/ReasonForVisit';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './store/reducers/reducers';
@@ -34,6 +35,7 @@ export default function App() {
           <Stack.Screen name="Open Slots" component={EpicGetOpenSlots} />
           <Stack.Screen name="Provider Schedule" component={SchedulingLanding} />
           <Stack.Screen name="Provider Availability" component={ProviderAvailability} />
+          <Stack.Screen name="Reason" component={ReasonForVisit} />
           <Stack.Screen name="Our Team" component={Team} />
           <Stack.Screen name="Profile" component={Profile} />
         </Stack.Navigator>

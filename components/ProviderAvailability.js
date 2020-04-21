@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { View, Text, FlatList, SafeAreaView, StyleSheet, Image } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
 
@@ -19,6 +19,7 @@ class ProviderAvailability extends Component {
         this.state = {
             schedule: [],
             stickyHeaderIndices: [],
+            refreshing: true,
         };
     }
 
@@ -59,13 +60,18 @@ class ProviderAvailability extends Component {
         // console.log("indices", headerIndices );
 
         this.setState({
+            refreshing: false,
             schedule: options,
             stickyHeaderIndices: headerIndices
         });
 
     }
 
-
+    pressed = (item) =>{
+        this.props.navigation.navigate('Reason', {
+            time: item.time
+        });
+    }
 
     FlatListItemSeparator = () => {
         return (
@@ -81,9 +87,9 @@ class ProviderAvailability extends Component {
 
     renderItem = ({item}) => {
         return (
-            <View>
+            <TouchableOpacity onPress={() => this.pressed(item)}>
                 {item.type === 'day' ? <View style={styles.date}><Text style={styles.dateText}>{item.date}</Text></View>: <View style={styles.slot}><Text style={styles.slotText}>{item.time}</Text></View>}
-            </View>
+            </TouchableOpacity>
         );
     }
 
@@ -92,13 +98,15 @@ class ProviderAvailability extends Component {
             <SafeAreaView style={styles.scrollContainer}>
                 <Provider route={this.props.route} />
                 <FlatList 
+                    refreshing={this.state.refreshing}
+                    onRefresh={() => console.log("refresh fired")}
                     data={this.state.schedule} 
                     ItemSeparatorComponent={this.FlatListItemSeparator}
                     style={styles.scrollContainer} 
                     alwaysBounceVertical={false}
                     disableVirtualization={false}
                     renderItem={this.renderItem}
-                    keyExtractor={item => item.key}
+                    keyExtractor={item => item.key.toString()}
                     stickyHeaderIndices={this.state.stickyHeaderIndices}
                     // getItemLayout={(data, index)=> (
                     //     {length: ( ITEM_HEIGHT +2), offset: (ITEM_HEIGHT+2) * index, index}
@@ -131,7 +139,7 @@ const styles = StyleSheet.create({
     pcpTextStyle:{
         width: 220,
         margin: 10,
-        fontSize: res.scaleFont(28)
+        fontSize: res.scaleFont(36)
     },
     nameImageWrapper:{
         margin: 18,
@@ -147,7 +155,7 @@ const styles = StyleSheet.create({
     },
     dateText:{
         color: 'white',
-        fontSize: res.scaleFont(22),
+        fontSize: res.scaleFont(24),
         marginLeft: res.scaleX(12),
     },
     slot:{
@@ -159,7 +167,7 @@ const styles = StyleSheet.create({
         borderRadius: 8,
     },
     slotText:{
-        fontSize: res.scaleFont(26)
+        fontSize: res.scaleFont(24)
     },
     scrollContainer:{
         flex: 1,
