@@ -61,18 +61,18 @@ export default {
     scaleX: size => size * ratioX,
 
     fonts: {
-        // 'brandon-bold': 'BrandonGrotesque-Bold',
-        // 'brandon-bold-italic': 'BrandonGrotesque-BoldItalic',
-        // 'brandon-black': 'BrandonGrotesque-Black',
-        // 'brandon-black-italic': 'BrandonGrotesque-BlackItalic',
-        // 'brandon-light': 'BrandonGrotesque-Light',
-        // 'brandon-light-italic': 'BrandonGrotesque-LightItalic',
-        // 'brandon-med': 'BrandonGrotesque-Medium',
-        // 'brandon-med-italic': 'BrandonGrotesque-MediumItalic',
-        // 'brandon': 'BrandonGrotesque-Regular',
-        // 'brandon-italic': 'BrandonGrotesque-RegularItalic',
-        // 'brandon-thin': 'BrandonGrotesque-Thin',
-        // 'brandon-thin-italic': 'BrandonGrotesque-ThinItalic'
+        'brandon-bold': 'BrandonGrotesque-Bold',
+        'brandon-bold-italic': 'BrandonGrotesque-BoldItalic',
+        'brandon-black': 'BrandonGrotesque-Black',
+        'brandon-black-italic': 'BrandonGrotesque-BlackItalic',
+        'brandon-light': 'BrandonGrotesque-Light',
+        'brandon-light-italic': 'BrandonGrotesque-LightItalic',
+        'brandon-med': 'BrandonGrotesque-Medium',
+        'brandon-med-italic': 'BrandonGrotesque-MediumItalic',
+        'brandon': 'BrandonGrotesque-Regular',
+        'brandon-italic': 'BrandonGrotesque-RegularItalic',
+        'brandon-thin': 'BrandonGrotesque-Thin',
+        'brandon-thin-italic': 'BrandonGrotesque-ThinItalic',
          ...Platform.select({
             ios: {
                 'brandon-bold': 'BrandonGrotesque-Bold',

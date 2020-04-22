@@ -1,67 +1,100 @@
 import React, { Component } from 'react';
-import {SafeAreaView, View, FlatList, Text, StyleSheet, Image, TouchableOpacity, Alert, Dimensions, Animated} from 'react-native';
-import Constants from 'expo-constants';
-import {connect} from 'react-redux';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {KeyboardAvoidingView, View, FlatList, TextInput, StyleSheet} from 'react-native';
 
-import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
+import {connect} from 'react-redux';
+
+import ProviderModal from './Modal';
+
+import { res, fonts } from '../styles';
 
 import * as actions from '../store/actions';
 
 import * as colors from '../constants/colors';
 
-import PCPs from '../Lists/PCPs';
+import PCPs from '../Lists/providers.json';
 
 import PCPInList from './PCPInList';
+// import PCPInListInLineSchedule from './PCPInListInLineSchedule';
 
 const ITEM_HEIGHT = 80;
 
-{/* <PCPInList firstName={} lastName={} img={} press={} title={} />
 
-function PCPInList({firstName, lastName, img, press, title}) {
-
-    return (
-        <View style={styles.pcpView}>
-            <View style={styles.nameImgWrapper}>
-                {img ? <Image style={{ width: 60, height: 60, borderRadius: 30, marginLeft: 6, marginRight: 12 }} source={{ uri: img }} /> : <MaterialCommunityIcons style={{ marginLeft: 12, fontSize: 40, }} name="doctor" color="grey" />}
-                <Text style={styles.pcpText}>{firstName + ' ' + lastName + ', ' + title}</Text>
-            </View>
-            <TouchableOpacity style={styles.bookTouchableOpacity} onPress={() => press(firstName, lastName, img, title)}><Text style={styles.bookText}>Book</Text></TouchableOpacity>
-        </View>
-    )
-} */}
+const getSuggestions = value => {
+    let updatedPCPs = {...PCPs};
+    let updatedResolver = [...updatedPCPs.resolver];
+    let suggestions = [];
+        // console.log('search value', this.state.searchValue);
+    const inputValue = value.trim().toLowerCase().split(" ");
+    const inputLength = inputValue.length;
+        for (let i = 0; i < inputLength; i++){
+          for (let j = 0; j < updatedResolver.length; j++ ){
+              if (updatedResolver[j].name.toLowerCase().indexOf(inputValue[i]) !== -1){
+                  suggestions.push(updatedResolver[j]);
+              }
+          }   
+        }
+    return suggestions = suggestions.filter((a, b) => suggestions.indexOf(a) === b );
+}
 
 class SchedulingLanding extends Component {
+
+    constructor(props) {
+        super(props)
     
-    RenderFlatListStickyHeader = () => {
-        return <View style={{ width: "100%",  height: 0, alignItems: 'center', backgroundColor: 'white' }}></View>
+        this.state = {
+             modalOpen: false,
+             providerIndex: 0,
+             searchValue: '',
+             suggestions: PCPs.resolver,
+        }
     }
 
-      pressed = (firstName, lastName, img, title) =>{
-        //   console.log("pressed params", firstName, lastName, img, title);
+    pressed = (name , img) =>{
         this.props.navigation.navigate('Provider Availability', {
-            firstName,
-            lastName,
+            name,
             img,
-            title,
         });
     }
 
-    render() {
-        return (
-            <SafeAreaView style={styles.scrollContainer}>
+    toggleModal = (providerIndex) => {
 
-                <FlatList 
-                    data={PCPs} 
-                    style={styles.scrollContainer} 
-                    renderItem={({item}) => <PCPInList firstName={item.firstName} lastName={item.lastName} title={item.title} press={this.pressed} img={item.img} getSchedule={this.props.getSchedule} bookText={'Book'}/>}
-                    keyExtractor={item => item.DEA}
-                    // ListHeaderComponent={this.RenderFlatListStickyHeader}
-                    getItemLayout={(data, index)=> (
-                        {length: ITEM_HEIGHT, offset:ITEM_HEIGHT * index  , index}
-                    )}
+        this.setState( prevState => {
+            return {
+                modalOpen: !prevState.modalOpen,
+                providerIndex,
+            }
+        })
+    }
+
+    onChange = (text) => {
+        this.setState({
+            searchValue: text,
+            suggestions: getSuggestions(text),
+        })
+    }
+
+    render() {
+
+
+        return (
+            <KeyboardAvoidingView style={styles.scrollContainer}>
+                <TextInput 
+                    onChangeText={searchValue => this.onChange(searchValue)}
+                    value={this.state.searchValue}
+                    style={styles.textInput}
+                    placeholder="Search"
                 />
-            </SafeAreaView>
+                <FlatList 
+                    data={this.state.suggestions } 
+                    style={styles.flatListContainer} 
+                    renderItem={({item}) => <PCPInList index={item.index} toggleModal={this.toggleModal} navigation={this.props.navigation} name={item.name} press={this.pressed} img={item.image} getSchedule={this.props.getSchedule} bookText={'Book'}/>}
+                    keyExtractor={item => item.index.toString()}
+                    getItemLayout={(data, index) => (
+                        {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+                      )}
+                />
+                <ProviderModal modalOpen={this.state.modalOpen} providerIndex={this.state.providerIndex} toggleModal={this.toggleModal} />
+            </KeyboardAvoidingView>
 
         )
     }
@@ -81,10 +114,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(SchedulingLanding);
 
 
 const styles = StyleSheet.create({
-    timeHeader:{
-        height: 0,
-        color: "#eee",
-    },
     nameImgWrapper:{
         flex: 1,
         alignItems: 'center',
@@ -93,12 +122,23 @@ const styles = StyleSheet.create({
     },  
     scrollContainer:{
         flex: 1,
-        marginTop: 0,
-        paddingTop: 0,
-        paddingLeft: 0,
+    },
+    flatListContainer:{
+        flex: 1,
     },
     pcpText:{
         fontSize: res.scaleFont(18),
+    },
+    textInput: {
+        paddingVertical: res.scaleY(5),
+        paddingHorizontal: res.scaleX(12),
+        fontSize: res.scaleFont(26), 
+        lineHeight: res.scaleFont(30),
+        fontFamily: 'brandon',
+        // borderColor: '#ccc',
+        // borderRadius: 4,
+        // borderWidth: 0.5,
+        margin: 4,
     },
     pcpView: {
         flex: 1,

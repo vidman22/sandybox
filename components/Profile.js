@@ -1,12 +1,16 @@
 import * as React from 'react';
-import { View, ScrollView, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-
+import Font from 'expo-font';
 import * as colors from '../constants/colors';
-const DEVICE_WIDTH = Dimensions.get('window').width;
+import { res, fonts } from '../styles';
 
 const Profile = ({route, navigation}) => {
+   const med = Font.isLoaded('brandon-med');
+    console.log('anything?');
+    console.log("profile font loaded", med)
     const {bio, image, name, index} = route.params;
+
     return (
         <ScrollView style={styles.container}>
             <Text style={styles.name}>{name}</Text>
@@ -39,11 +43,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     name: {
-        fontSize: 24,
+        fontSize: res.scaleFont(30),
         flex: 1,
+        fontFamily: 'brandon-med',
         marginTop: Constants.statusBarHeight,
         marginBottom: 12,
-        width: DEVICE_WIDTH,
+        width: res.DEVICE_WIDTH,
         textAlign: 'center',
         color: colors.THEME_GREEN,
         fontWeight: "700",
@@ -56,16 +61,18 @@ const styles = StyleSheet.create({
     },
     firstLine: {
         textAlign: 'center',
-        padding: 4,
-        fontSize: 18,
-        lineHeight: 26,
+        fontFamily: 'brandon-med',
+        fontSize: res.scaleFont(26),
+        lineHeight: res.scaleFont(36),
         fontWeight: "500",
         marginBottom: 5,
     },  
     line:{
-        padding: 4,
-        fontSize: 18,
-        lineHeight: 26,
+        fontFamily: 'brandon-med',
+        paddingTop: 6,
+        paddingHorizontal: 4,
+        fontSize: res.scaleFont(24),
+        lineHeight: res.scaleFont(36),
     }
 
 })

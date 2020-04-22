@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { View, Text, FlatList, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
+import { res } from '../styles';
 
 import * as colors from '../constants/colors';
 
@@ -10,7 +10,7 @@ import _ from 'lodash';
 
 import scheduleData from '../EPICData/GetScheduleDaysForProvider.json';
 
-const ITEM_HEIGHT = 80;
+const ITEM_HEIGHT = 40;
 
 
 class ProviderAvailability extends Component {
@@ -77,7 +77,7 @@ class ProviderAvailability extends Component {
         return (
           <View
             style={{
-              padding: 2,
+              padding: 1,
               width: "100%",
               backgroundColor: '#eee',
             }}
@@ -95,8 +95,6 @@ class ProviderAvailability extends Component {
 
     render() {
         return (
-            <SafeAreaView style={styles.scrollContainer}>
-                <Provider route={this.props.route} />
                 <FlatList 
                     refreshing={this.state.refreshing}
                     onRefresh={() => console.log("refresh fired")}
@@ -112,7 +110,6 @@ class ProviderAvailability extends Component {
                     //     {length: ( ITEM_HEIGHT +2), offset: (ITEM_HEIGHT+2) * index, index}
                     // )}
                 />
-            </SafeAreaView>
         );
     }
 }
@@ -120,26 +117,11 @@ class ProviderAvailability extends Component {
 export default ProviderAvailability;
 
 
-
-const Provider = ({route}) => {
-    // console.log("route params ",  route.params);
-    const { name, img,} = route.params;
-    return (
-
-            <View style={styles.nameImageWrapper}>
-                <Image style={{ width: 90, height: 90, borderRadius: 45 }} source={{ uri: img }} /> 
-                <Text style={styles.pcpTextStyle}>{ name }</Text>
-            </View>
-
-    )
-}
-
-
 const styles = StyleSheet.create({
     pcpTextStyle:{
         width: 220,
         margin: 10,
-        fontSize: res.scaleFont(26)
+        fontSize: res.scaleFont(36)
     },
     nameImageWrapper:{
         margin: 18,
@@ -151,7 +133,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: "flex-start",
         backgroundColor: colors.THEME_GREEN,
-        height: ITEM_HEIGHT/2,
+        height: ITEM_HEIGHT,
     },
     dateText:{
         color: 'white',
@@ -163,7 +145,7 @@ const styles = StyleSheet.create({
         height: ITEM_HEIGHT,
         justifyContent:'center',
         alignItems:'center',
-        margin: 8,
+        margin: 6,
         borderRadius: 8,
     },
     slotText:{
@@ -171,6 +153,9 @@ const styles = StyleSheet.create({
     },
     scrollContainer:{
         flex: 1,
+        width: res.DEVICE_WIDTH - 20,
+        height: res.scaleY(300),
+        overflow: 'scroll',
         marginTop: 0,
         paddingTop: 0,
         paddingLeft: 0,

@@ -2,22 +2,28 @@ import React from 'react';
 
 import { View, Text, StyleSheet, Image, TouchableOpacity,} from 'react-native';
 
-import { fonts, res } from '../styles';
+import { res } from '../styles';
 
 import * as colors from '../constants/colors';
 
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Feather } from '@expo/vector-icons';
 
 const ITEM_HEIGHT = 80;
 
-const PCPInList = ({firstName, lastName, img, press, title, bookText}) => {
+const PCPInList = ({name, img, press, title, bookText, toggleModal, index}) => {
     return (
             <View style={styles.pcpView}>
                 <View style={styles.nameImgWrapper}>
                     {img ? <Image style={{ width: 60, height: 60, borderRadius: 30, marginLeft: 6, marginRight: 12 }} source={{ uri: img }} /> : <MaterialCommunityIcons style={{ marginLeft: 12, fontSize: 40, }} name="doctor" color="grey" />}
-                    <Text style={styles.pcpText}>{firstName + ' ' + lastName + ', ' + title}</Text>
+                    <View style={styles.nameButtonWrapper}>
+                        <Text style={styles.pcpText}>{name}</Text>
+                        <TouchableOpacity style={styles.viewProfileButton} onPress={() => toggleModal(index)}>
+                            <Text style={styles.pcpViewProfileText}>View Profile</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <TouchableOpacity style={bookText === 'Book' ? styles.bookTouchableOpacity : styles.bookTimeTouchableOpacity} onPress={() => press(firstName, lastName, img, title, bookText)}><Text style={bookText === 'Book' ? styles.bookText : styles.bookText}>{bookText}</Text></TouchableOpacity>
+
+                <TouchableOpacity style={bookText === 'Book' ? styles.bookTouchableOpacity : styles.bookTimeTouchableOpacity} onPress={() => press(name, img, title, bookText)}>{bookText === 'Book' ? <Feather style={{ marginLeft: 52, fontSize: 28, color: colors.TEXT_GREY }} name="chevron-right" /> : <Text style={styles.bookText}>{bookText}</Text>}</TouchableOpacity>
             </View>
         )
 }
@@ -54,7 +60,7 @@ const styles = StyleSheet.create({
         width: res.scaleX(90),
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colors.THEME_GREEN,
+        backgroundColor: '#fff',
         borderRadius: 4,
         marginRight: 18,
     },
@@ -70,5 +76,19 @@ const styles = StyleSheet.create({
     bookText:{
         fontSize: res.scaleFont(20),
         color: 'white',
+    },
+    nameButtonWrapper:{
+        flex: 1,
+        marginTop: res.scaleY(20),
+        flexDirection: 'column',
+        alignContent: 'flex-end',
+    },
+    viewProfileButton:{
+        fontSize: res.scaleFont(16),
+    },
+    pcpViewProfileText:{
+        color: colors.TEXT_GREY,
+        marginTop: res.scaleY(3),
+        marginLeft: res.scaleX(3),
     }
 })
