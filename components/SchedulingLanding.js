@@ -14,6 +14,8 @@ import * as colors from '../constants/colors';
 import PCPs from '../Lists/providers.json';
 
 import PCPInList from './PCPInList';
+
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import PCPInListInLineSchedule from './PCPInListInLineSchedule';
 
 const ITEM_HEIGHT = 80;
@@ -49,10 +51,12 @@ class SchedulingLanding extends Component {
         }
     }
 
-    pressed = (name , img) =>{
+    pressed = (name , img, title, booktext, index) =>{
+        console.log("schedule landing", index);
         this.props.navigation.navigate('Provider Availability', {
             name,
             img,
+            index,
         });
     }
 
@@ -78,12 +82,15 @@ class SchedulingLanding extends Component {
 
         return (
             <KeyboardAvoidingView style={styles.scrollContainer}>
-                <TextInput 
-                    onChangeText={searchValue => this.onChange(searchValue)}
-                    value={this.state.searchValue}
-                    style={styles.textInput}
-                    placeholder="Search"
-                />
+                <View style={styles.searchIconTextWrapper}>
+                    <MaterialCommunityIcons style={styles.magnifyIcon} name="magnify" />
+                    <TextInput 
+                        onChangeText={searchValue => this.onChange(searchValue)}
+                        value={this.state.searchValue}
+                        style={styles.textInput}
+                        placeholder='Search Provider'
+                    />
+                </View>
                 <FlatList 
                     data={this.state.suggestions } 
                     style={styles.flatListContainer} 
@@ -114,6 +121,17 @@ export default connect(mapStateToProps, mapDispatchToProps)(SchedulingLanding);
 
 
 const styles = StyleSheet.create({
+    searchIconTextWrapper: {
+        flex: .1, 
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    magnifyIcon: {
+        fontSize: res.scaleFont(30),
+        padding: 10,
+        color: colors.TEXT_LIGHT_GREY,
+    },
     nameImgWrapper:{
         flex: 1,
         alignItems: 'center',
@@ -130,15 +148,12 @@ const styles = StyleSheet.create({
         fontSize: res.scaleFont(18),
     },
     textInput: {
-        paddingVertical: res.scaleY(5),
-        paddingHorizontal: res.scaleX(12),
-        fontSize: res.scaleFont(26), 
-        lineHeight: res.scaleFont(30),
+        marginVertical: res.scaleY(10),
+        paddingHorizontal: res.scaleX(0),
+        fontSize: res.scaleFont(30),
+        height: res.scaleY(36),
         fontFamily: 'brandon',
-        // borderColor: '#ccc',
-        // borderRadius: 4,
-        // borderWidth: 0.5,
-        margin: 4,
+        // margin: 4,
     },
     pcpView: {
         flex: 1,

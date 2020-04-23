@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import Font from 'expo-font';
 import * as colors from '../constants/colors';
 import { res, fonts } from '../styles';
 
 const Profile = ({route, navigation}) => {
-   const med = Font.isLoaded('brandon-med');
-    console.log('anything?');
-    console.log("profile font loaded", med)
     const {bio, image, name, index} = route.params;
 
     return (
@@ -68,7 +64,7 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },  
     line:{
-        fontFamily: 'brandon-med',
+        fontFamily: 'brandon',
         paddingTop: 6,
         paddingHorizontal: 4,
         fontSize: res.scaleFont(24),

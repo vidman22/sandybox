@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { View, Text, StyleSheet, Image, TouchableOpacity,} from 'react-native';
+import { chevronHitSlop } from '../constants/props';
 
 import { res } from '../styles';
 
@@ -16,14 +17,14 @@ const PCPInList = ({name, img, press, title, bookText, toggleModal, index}) => {
                 <View style={styles.nameImgWrapper}>
                     {img ? <Image style={{ width: 60, height: 60, borderRadius: 30, marginLeft: 6, marginRight: 12 }} source={{ uri: img }} /> : <MaterialCommunityIcons style={{ marginLeft: 12, fontSize: 40, }} name="doctor" color="grey" />}
                     <View style={styles.nameButtonWrapper}>
-                        <Text style={styles.pcpText}>{name}</Text>
+                        <Text style={styles.pcpNameText}>{name}</Text>
                         <TouchableOpacity style={styles.viewProfileButton} onPress={() => toggleModal(index)}>
                             <Text style={styles.pcpViewProfileText}>View Profile</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
 
-                <TouchableOpacity style={bookText === 'Book' ? styles.bookTouchableOpacity : styles.bookTimeTouchableOpacity} onPress={() => press(name, img, title, bookText)}>{bookText === 'Book' ? <Feather style={{ marginLeft: 52, fontSize: 28, color: colors.TEXT_GREY }} name="chevron-right" /> : <Text style={styles.bookText}>{bookText}</Text>}</TouchableOpacity>
+                <TouchableOpacity hitSlop={chevronHitSlop} style={bookText === 'Book' ? styles.bookTouchableOpacity : styles.bookTimeTouchableOpacity} onPress={() => press(name, img, title, bookText, index)}>{bookText === 'Book' ? <Feather style={{ marginLeft: 52, fontSize: 28, color: colors.THEME_GREEN }} name="chevron-right" /> : <Text style={styles.bookText}>{bookText}</Text>}</TouchableOpacity>
             </View>
         )
 }
@@ -38,8 +39,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         flexDirection: 'row',
     },  
-    pcpText:{
-        fontSize: res.scaleFont(18),
+    pcpNameText:{
+        fontSize: res.scaleFont(22),
+        lineHeight: res.scaleFont(24),
+        fontFamily: 'brandon-med',
     },
     pcpView: {
         flex: 1,
@@ -56,8 +59,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     bookTouchableOpacity:{
-        height: res.scaleY(45),
-        width: res.scaleX(90),
+        height: res.scaleY(55),
+        width: res.scaleX(100),
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#fff',
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
         marginRight: 18,
     },
     bookTimeTouchableOpacity:{
-        height: res.scaleY(45),
+        height: res.scaleY(50),
         width: res.scaleX(100),
         alignItems: 'center',
         justifyContent: 'center',
@@ -76,6 +79,7 @@ const styles = StyleSheet.create({
     bookText:{
         fontSize: res.scaleFont(20),
         color: 'white',
+        fontFamily: 'brandon',
     },
     nameButtonWrapper:{
         flex: 1,
@@ -87,8 +91,10 @@ const styles = StyleSheet.create({
         fontSize: res.scaleFont(16),
     },
     pcpViewProfileText:{
-        color: colors.TEXT_GREY,
-        marginTop: res.scaleY(3),
+        color: colors.THEME_GREEN,
+        fontFamily: 'brandon',
+        fontSize: res.scaleFont(20),
+        opacity: .8,
         marginLeft: res.scaleX(3),
     }
 })

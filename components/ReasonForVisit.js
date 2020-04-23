@@ -21,12 +21,6 @@ export default function ReasonForVisit({navigation, route}){
                 placeholderTextColor="grey"
                 maxLength={144}
             />
-            <View style={styles.buttonWrapper}>
-
-                <TouchableOpacity style={styles.nextButton} onPress={() => console.log('pressed')}>
-                    <Text style={styles.nextButtonText}>Next</Text>
-                </TouchableOpacity>
-            </View>
         </View>
     );
 }
@@ -36,6 +30,7 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
         flexGrow: 1,
+        backgroundColor: '#fff',
     },
     placeholderText: {
         color: '#ccc',

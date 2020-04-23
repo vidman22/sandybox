@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     },
     buttonView:{
         width: res.DEVICE_WIDTH,
-    
+        backgroundColor: colors.THEME_GREEN,
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         paddingRight: 15,
         paddingBottom: 5,
-        backgroundColor: "#fff",
+        backgroundColor: colors.THEME_GREEN,
       },
     modalView: {
       flex: 1,
@@ -152,6 +152,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: colors.THEME_GREEN,
         fontWeight: "700",
+        fontFamily: 'brandon-med',
     },
     bioWrapper: {
         flex: 1,
@@ -167,13 +168,14 @@ const styles = StyleSheet.create({
         lineHeight: res.scaleFont(36),
         fontWeight: "500",
         marginBottom: 5,
-
+        fontFamily: 'brandon-med',
     },  
     line:{
         paddingTop: 6,
         paddingHorizontal: 4,
         fontSize: res.scaleFont(24),
         lineHeight: res.scaleFont(36),
+        fontFamily: 'brandon'
     }
 
   });

@@ -4,6 +4,8 @@ import Constants from 'expo-constants';
 import {connect} from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import ProviderModal from './Modal';
+
 import scheduleData from '../EPICData/GetOpenSlots2019.json';
 // import scheduleData from '../EPICData/GetScheduleDaysForProvider.json';
 
@@ -15,7 +17,7 @@ import * as actions from '../store/actions';
 
 import * as colors from '../constants/colors';
 
-import PCPs from '../Lists/PCPs';
+import PCPs from '../Lists/providers.json';
 
 import PCPInList from './PCPInList';
 
@@ -26,6 +28,8 @@ class EpicGetOpenSlots extends Component {
         this.state = {
             schedule: [],
             refreshing: true,
+            modalOpen: false,
+            providerIndex: 0,
         };
     }
 
@@ -48,7 +52,7 @@ class EpicGetOpenSlots extends Component {
         });
 
 
-        console.log("schedule days for provider", options )
+       
         let flatOptions = _.flattenDeep(options);
 
         this.setState({
@@ -59,7 +63,9 @@ class EpicGetOpenSlots extends Component {
     }
 
     pressed = (a, b, c, d, bookText) =>{
-        console.log("pressed", bookText);
+        this.props.navigation.navigate('Book Appointment', {
+            time: bookText
+        });
     }
 
     renderItem = ({item}) => {
@@ -76,12 +82,21 @@ class EpicGetOpenSlots extends Component {
         return (
             <View key={Math.random()}>
                 {item.Provider.ID ? (
-                    <PCPInList firstName={PCPs[0].firstName} lastName={PCPs[0].lastName} title={PCPs[0].title} press={this.pressed} img={PCPs[0].img} bookText={timeString}/>
+                    <PCPInList name={PCPs.resolver[0].name} index={PCPs.resolver[0].index} toggleModal={this.toggleModal} press={this.pressed} img={PCPs.resolver[0].image} bookText={timeString}/>
                 ) : null}
             </View>
             )
     };
 
+    toggleModal = (providerIndex) => {
+        console.log("providerIndex ", providerIndex);
+        this.setState( prevState => {
+            return {
+                modalOpen: !prevState.modalOpen,
+                providerIndex,
+            }
+        })
+    }
 
     render() {
 
@@ -105,6 +120,7 @@ class EpicGetOpenSlots extends Component {
                         //     {length: ( ITEM_HEIGHT +2), offset: (ITEM_HEIGHT+2) * index, index}
                         // )}
                         />
+                <ProviderModal modalOpen={this.state.modalOpen} providerIndex={this.state.providerIndex} toggleModal={this.toggleModal} />
             </SafeAreaView>
         );
     }

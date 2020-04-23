@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { View, Text, FlatList, SafeAreaView, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
+import ProviderModal from './Modal';
+
 import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
 
 import * as colors from '../constants/colors';
@@ -9,6 +11,7 @@ import * as colors from '../constants/colors';
 import _ from 'lodash';
 
 import scheduleData from '../EPICData/GetScheduleDaysForProvider.json';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const ITEM_HEIGHT = 80;
 
@@ -20,6 +23,8 @@ class ProviderAvailability extends Component {
             schedule: [],
             stickyHeaderIndices: [],
             refreshing: true,
+            providerIndex: null,
+            modalOpen: false,
         };
     }
 
@@ -68,9 +73,18 @@ class ProviderAvailability extends Component {
     }
 
     pressed = (item) =>{
-        this.props.navigation.navigate('Reason', {
+        this.props.navigation.navigate('Book Appointment', {
             time: item.time
         });
+    }
+
+    toggleModal = (providerIndex) => {
+        this.setState(prevState => {
+            return {
+                providerIndex,
+                modalOpen: !prevState.modalOpen,
+            }
+        })
     }
 
     FlatListItemSeparator = () => {
@@ -94,9 +108,10 @@ class ProviderAvailability extends Component {
     }
 
     render() {
+        console.log("index in availability ", this.props.route.params.index);
         return (
             <SafeAreaView style={styles.scrollContainer}>
-                <Provider route={this.props.route} />
+                <Provider index={this.props.route.params.index} route={this.props.route} toggleModal={this.toggleModal}/>
                 <FlatList 
                     refreshing={this.state.refreshing}
                     onRefresh={() => console.log("refresh fired")}
@@ -112,6 +127,7 @@ class ProviderAvailability extends Component {
                     //     {length: ( ITEM_HEIGHT +2), offset: (ITEM_HEIGHT+2) * index, index}
                     // )}
                 />
+                <ProviderModal modalOpen={this.state.modalOpen} providerIndex={this.props.route.params.index} toggleModal={this.toggleModal} />
             </SafeAreaView>
         );
     }
@@ -121,15 +137,17 @@ export default ProviderAvailability;
 
 
 
-const Provider = ({route}) => {
+const Provider = ({route, toggleModal}) => {
     // console.log("route params ",  route.params);
     const { name, img,} = route.params;
     return (
+        <TouchableOpacity onPress={() => toggleModal()}>
 
             <View style={styles.nameImageWrapper}>
                 <Image style={{ width: 90, height: 90, borderRadius: 45 }} source={{ uri: img }} /> 
                 <Text style={styles.pcpTextStyle}>{ name }</Text>
             </View>
+        </TouchableOpacity>
 
     )
 }
@@ -138,6 +156,7 @@ const Provider = ({route}) => {
 const styles = StyleSheet.create({
     pcpTextStyle:{
         width: 220,
+        fontFamily: 'brandon-med',
         margin: 10,
         fontSize: res.scaleFont(26)
     },
@@ -150,16 +169,17 @@ const styles = StyleSheet.create({
     date:{
         justifyContent: 'center',
         alignItems: "flex-start",
-        backgroundColor: colors.THEME_GREEN,
+        backgroundColor: colors.TEXT_GREY,
         height: ITEM_HEIGHT/2,
     },
     dateText:{
         color: 'white',
+        fontFamily: 'brandon',
         fontSize: res.scaleFont(24),
         marginLeft: res.scaleX(12),
     },
     slot:{
-        backgroundColor: colors.TEXT_LIGHT_GREY,
+        backgroundColor: colors.THEME_GREEN,
         height: ITEM_HEIGHT,
         justifyContent:'center',
         alignItems:'center',
@@ -167,7 +187,9 @@ const styles = StyleSheet.create({
         borderRadius: 8,
     },
     slotText:{
-        fontSize: res.scaleFont(24)
+        fontSize: res.scaleFont(24),
+        fontFamily: 'brandon',
+        color: '#fff',
     },
     scrollContainer:{
         flex: 1,
