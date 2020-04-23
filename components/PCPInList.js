@@ -17,7 +17,7 @@ const PCPInList = ({name, img, press, title, bookText, toggleModal, index}) => {
                 <View style={styles.nameImgWrapper}>
                     {img ? <Image style={{ width: 60, height: 60, borderRadius: 30, marginLeft: 6, marginRight: 12 }} source={{ uri: img }} /> : <MaterialCommunityIcons style={{ marginLeft: 12, fontSize: 40, }} name="doctor" color="grey" />}
                     <View style={styles.nameButtonWrapper}>
-                        <Text style={styles.pcpNameText}>{name}</Text>
+                        <Text style={bookText ? styles.pcpSmallerName : styles.pcpNameText}>{name}</Text>
                         <TouchableOpacity style={styles.viewProfileButton} onPress={() => toggleModal(index)}>
                             <Text style={styles.pcpViewProfileText}>View Profile</Text>
                         </TouchableOpacity>
@@ -41,6 +41,11 @@ const styles = StyleSheet.create({
     },  
     pcpNameText:{
         fontSize: res.scaleFont(22),
+        lineHeight: res.scaleFont(24),
+        fontFamily: 'brandon-med',
+    },
+    pcpSmallerName:{
+        fontSize: res.scaleFont(20),
         lineHeight: res.scaleFont(24),
         fontFamily: 'brandon-med',
     },

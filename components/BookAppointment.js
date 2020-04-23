@@ -12,16 +12,20 @@ export default function BookAppointment() {
     const [value, onChangeText] = React.useState('');
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-
         
-        <KeyboardAvoidingView enabled behavior="position" keyboardVerticalOffset={20} contentContainerStyle={{height: res.DEVICE_HEIGHT * .9}} style={styles.container}>
+        
+        <KeyboardAvoidingView enabled behavior="position" keyboardVerticalOffset={40} contentContainerStyle={{height: res.DEVICE_HEIGHT * .9}} style={styles.container}>
             
-            
+            <View style={styles.header}>
+                <View style={styles.headerTextWrapper}>
+                    <Text style={styles.headerText}>Visit Information</Text>
+                </View>
+            </View>
             <RenderPaymentRow leftText={'Patient'} rightText={'Add Patient'} />
             <RenderPaymentRow leftText={'Pharmacy'} rightText={'Add Pharmacy'} />
             <RenderPaymentRow leftText={'Payment'} rightText={'Add Payment'} last={true}/>
             
-            <View style={styles.labelWrapper}>
+            {/* <View style={styles.labelWrapper}> */}
                 {/* <Text allowFontScaling={false} style={styles.labelStyle}>Reason</Text> */}
                 <View style={styles.reasonInputContainer}>
                     <TextInput 
@@ -34,7 +38,7 @@ export default function BookAppointment() {
                         maxLength={144}
                         />
                 </View>
-            </View>
+            {/* </View> */}
             <View style={styles.buttonWrapper}>
                 <TouchableOpacity style={styles.bookButton} onPress={() => console.log('pressed')}>
                     <Text style={styles.bookButtonText}>Book My Appointment</Text>
@@ -48,7 +52,8 @@ export default function BookAppointment() {
 
 const RenderPaymentRow = (props) => {
     return (
-        <View style={[styles.labelInputWrapper]}>
+        <View style={styles.labelInputWrapper}>
+        <FontAwesome name="circle" color={colors.TEXT_GREY_2} style={{marginLeft: res.scaleX(10)}} size={9} />
         <Text allowFontScaling={false} style={styles.labelStyle}>{props.leftText}</Text>
         <View style={styles.inputContainer}>
             <TouchableOpacity
@@ -68,7 +73,28 @@ const styles = StyleSheet.create({
     container:{
         // flex: 1,
         backgroundColor: '#fff',
-        padding: 8,
+        paddingHorizontal: res.scaleX(15),
+        paddingVertical: res.scaleY(10),
+    },
+    header: {
+        flexGrow: .5,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // backgroundColor: '#eee',
+        // width: res.DEVICE_WIDTH,
+        borderBottomWidth: .5,
+        borderBottomColor: colors.TEXT_GREY_2,
+    },
+    headerTextWrapper:{
+
+    },
+    headerText: {
+        fontSize: res.scaleFont(24),
+        fontFamily: 'brandon-med',
+        color: colors.TEXT_GREY_2,
+        // backgroundColor: '#ccc',
+        textAlign: 'center',
     },
     logoContainer: {
         flex: 1
@@ -106,7 +132,7 @@ const styles = StyleSheet.create({
     },
     labelStyle: {
         fontFamily: 'brandon-med',
-        color: colors.TEXT_GREY,
+        color: colors.TEXT_GREY_2,
         fontSize: res.scaleFont(22),
         marginLeft: res.scaleX(8),
     },
@@ -116,14 +142,12 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         alignItems: 'center',
         margin: 5,
+        // width: res.DEVICE_WIDTH,
     },
     inputStyle: {
         fontFamily:'brandon-bold',
         color: colors.THEME_GREEN,
         fontSize: res.scaleFont(24),
-        marginLeft: 30,
-
-
     },
     chevronStyle: {
         marginLeft: 15,
@@ -153,17 +177,11 @@ const styles = StyleSheet.create({
         fontSize: res.scaleFont(24),
     },
     reasonInputContainer:{
-        // flex: 1,
-        marginTop: - res.scaleY(20),
-        flexDirection: 'row',
-        justifyContent: 'center',
-        width: res.DEVICE_WIDTH,
-        // alignItems: 'center',
-
+        marginBottom: res.scaleY(22),
     },
     textInput: { 
-        height: 100, 
-        width: res.DEVICE_WIDTH * .93,
+        height: res.scaleY(100), 
+        // width: res.DEVICE_WIDTH,
         backgroundColor: '#fff',
         borderColor: '#ccc', 
         shadowColor: '#ccc',
@@ -171,7 +189,6 @@ const styles = StyleSheet.create({
         borderWidth: .1,
         padding: 12,
         marginTop: res.scaleY(25),
-        marginLeft: - res.scaleX(16),
         borderRadius: 2,
         lineHeight: res.scaleFont(36),
         fontSize: res.scaleFont(24),

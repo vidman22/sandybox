@@ -21,7 +21,6 @@ import PCPs from '../Lists/providers.json';
 
 import PCPInList from './PCPInList';
 
-
 class EpicGetOpenSlots extends Component {
     constructor(props){
         super(props);
@@ -79,10 +78,12 @@ class EpicGetOpenSlots extends Component {
             firstParsed = firstParsed - 12;
         }
         const timeString = `${firstParsed.toString()}:${secondParsed} ${AM_PM}`;
+        const index = Math.floor(Math.random()* Math.floor(43));
+        console.log("index", index);
         return (
             <View key={Math.random()}>
                 {item.Provider.ID ? (
-                    <PCPInList name={PCPs.resolver[0].name} index={PCPs.resolver[0].index} toggleModal={this.toggleModal} press={this.pressed} img={PCPs.resolver[0].image} bookText={timeString}/>
+                    <PCPInList name={PCPs.resolver[index].name} index={PCPs.resolver[index].index} toggleModal={this.toggleModal} press={this.pressed} img={PCPs.resolver[index].image} bookText={timeString}/>
                 ) : null}
             </View>
             )

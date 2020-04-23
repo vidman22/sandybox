@@ -1,4 +1,3 @@
-
 {
   "MoreSlots": true,
   "Errors": null,
@@ -114,7 +113,7 @@
   ],
   "Slots": [
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "08:00:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -124,7 +123,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "08:00:00",
                     "Duration": 15,
                     "VisitType": {
@@ -148,7 +147,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "08:15:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -158,7 +157,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "08:15:00",
                     "Duration": 15,
                     "VisitType": {
@@ -182,7 +181,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "08:30:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -192,7 +191,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "08:30:00",
                     "Duration": 15,
                     "VisitType": {
@@ -216,7 +215,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "08:45:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -226,7 +225,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "08:45:00",
                     "Duration": 15,
                     "VisitType": {
@@ -250,7 +249,41 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
+      "Time": "11:00:00",
+      "Duration": 15,
+      "AppointmentInfo": {
+        "Appts": [
+          {
+            "Pools": [
+              {
+                "Options": [
+                  {
+                    "Date": "2020-05-06",
+                    "Time": "11:00:00",
+                    "Duration": 15,
+                    "VisitType": {
+                      "ID": "    1004",
+                      "Type": "INTERNAL"
+                    },
+                    "Provider": {
+                      "ID": "   E1000",
+                      "Type": "INTERNAL"
+                    },
+                    "Department": {
+                      "ID": "10501101",
+                      "Type": "INTERNAL"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "Date": "2020-05-06",
       "Time": "11:15:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -260,7 +293,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "11:15:00",
                     "Duration": 15,
                     "VisitType": {
@@ -284,7 +317,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "11:30:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -294,7 +327,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "11:30:00",
                     "Duration": 15,
                     "VisitType": {
@@ -318,7 +351,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "11:45:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -328,7 +361,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "11:45:00",
                     "Duration": 15,
                     "VisitType": {
@@ -352,7 +385,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "14:00:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -362,7 +395,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "14:00:00",
                     "Duration": 15,
                     "VisitType": {
@@ -386,7 +419,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "14:15:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -396,7 +429,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "14:15:00",
                     "Duration": 15,
                     "VisitType": {
@@ -420,7 +453,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "14:30:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -430,7 +463,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "14:30:00",
                     "Duration": 15,
                     "VisitType": {
@@ -454,7 +487,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "14:45:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -464,7 +497,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "14:45:00",
                     "Duration": 15,
                     "VisitType": {
@@ -488,7 +521,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "15:00:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -498,7 +531,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "15:00:00",
                     "Duration": 15,
                     "VisitType": {
@@ -522,7 +555,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "15:15:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -532,7 +565,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "15:15:00",
                     "Duration": 15,
                     "VisitType": {
@@ -556,7 +589,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "15:30:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -566,7 +599,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "15:30:00",
                     "Duration": 15,
                     "VisitType": {
@@ -590,7 +623,7 @@
       }
     },
     {
-      "Date": "2020-04-10",
+      "Date": "2020-05-06",
       "Time": "15:45:00",
       "Duration": 15,
       "AppointmentInfo": {
@@ -600,7 +633,7 @@
               {
                 "Options": [
                   {
-                    "Date": "2020-04-10",
+                    "Date": "2020-05-06",
                     "Time": "15:45:00",
                     "Duration": 15,
                     "VisitType": {
