@@ -20,7 +20,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const ITEM_HEIGHT = 80;
 
-
 const getSuggestions = value => {
     let updatedPCPs = {...PCPs};
     let updatedResolver = [...updatedPCPs.resolver];
@@ -51,11 +50,9 @@ class SchedulingLanding extends Component {
         }
     }
 
-    pressed = (name , img, title, booktext, index) =>{
-        console.log("schedule landing", index);
+    pressed = (index, booktext) =>{
         this.props.navigation.navigate('Provider Availability', {
-            name,
-            img,
+
             index,
         });
     }
@@ -94,7 +91,14 @@ class SchedulingLanding extends Component {
                 <FlatList 
                     data={this.state.suggestions } 
                     style={styles.flatListContainer} 
-                    renderItem={({item}) => <PCPInList index={item.index} toggleModal={this.toggleModal} navigation={this.props.navigation} name={item.name} press={this.pressed} img={item.image} getSchedule={this.props.getSchedule} bookText={'Book'}/>}
+                    renderItem={({item}) => <PCPInList 
+                                                index={item.index} 
+                                                toggleModal={this.toggleModal} 
+                                                navigation={this.props.navigation} 
+                                                name={item.name} 
+                                                press={this.pressed} 
+                                                img={item.image} 
+                                                getSchedule={this.props.getSchedule} />}
                     keyExtractor={item => item.index.toString()}
                     getItemLayout={(data, index) => (
                         {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}

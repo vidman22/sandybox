@@ -38,6 +38,12 @@ export default function(state = defaultState, action) {
                 ...state,
                 ...action.payload,
             }
+        case GET_OPEN_SLOTS:
+            // console.log("slots", action.payload);
+            return {
+                ...state,
+                ...action.payload,
+            }
         default:
 			return state;
 	}

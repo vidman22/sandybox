@@ -12,8 +12,11 @@ import {
 
 import { Feather } from '@expo/vector-icons';
 import { fonts, res , hasHeaderStyle} from '../styles';
+
+import {headerLeftHitSlop} from '../constants/props';
 import * as colors from '../constants/colors';
 import PCPs from '../Lists/providers.json';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ProviderModal = (props) => {
     // console.log("index in provider", props.providerIndex)
@@ -23,6 +26,7 @@ const ProviderModal = (props) => {
         animationType="slide"
         transparent={true}
         visible={props.modalOpen}
+        style={styles.centeredView}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
         }}
@@ -30,14 +34,20 @@ const ProviderModal = (props) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
               <View style={styles.buttonView}>
-                <TouchableHighlight
+                <TouchableOpacity
                     style={styles.closeButton}
+                    hitSlop={{
+                      top: 30,
+                      bottom: 30,
+                      left: 50,
+                      right: 30
+                    }}
                     onPress={() => {
                         props.toggleModal(props.providerIndex);
                     }}
                 >
                     <Feather style={styles.closeButtonX} name="x" />
-                </TouchableHighlight>
+                </TouchableOpacity>
               </View>
             {PCP && <Profile bio={PCP.bio} image={PCP.image} name={PCP.name}  />}
           </View>
@@ -71,10 +81,12 @@ const Profile = (props) => {
 const styles = StyleSheet.create({
     centeredView: {
       flex: 1,
+      backgroundColor: colors.THEME_GREEN,
+      overflow: 'hidden',
     },
     buttonView:{
         width: res.DEVICE_WIDTH,
-        backgroundColor: colors.THEME_GREEN,
+        backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
@@ -84,14 +96,13 @@ const styles = StyleSheet.create({
     },
     closeButton: {
         borderRadius: 20,
-        paddingTop: 20,
-        paddingRight: 15,
-        paddingBottom: 5,
-        backgroundColor: colors.THEME_GREEN,
+        padding: 20,
+        paddingTop: 26,
+        backgroundColor: '#fff',
       },
     modalView: {
       flex: 1,
-      backgroundColor: "white",
+      backgroundColor: '#fff',
       borderRadius: 2,
       alignItems: "center",
       shadowColor: "#000",
@@ -103,6 +114,10 @@ const styles = StyleSheet.create({
       shadowRadius: 3.84,
       elevation: 5
     },
+    container: {
+      flex: 1,
+      // backgroundColor: colors.THEME_GREEN,
+    },
     textStyle: {
       color: "white",
       fontWeight: "bold",
@@ -111,10 +126,6 @@ const styles = StyleSheet.create({
     modalText: {
       marginBottom: 15,
       textAlign: "center"
-    },
-
-    container: {
-        flex: 1,
     },
     backgoundImage:{
         flex: 1,
@@ -161,6 +172,7 @@ const styles = StyleSheet.create({
         paddingTop: res.scaleY(10),
         paddingBottom: res.scaleY(30),
         paddingHorizontal: res.scaleX(24),
+        backgroundColor: '#fff',
     },
     firstLine: {
         textAlign: 'center',

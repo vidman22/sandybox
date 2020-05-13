@@ -18,6 +18,7 @@ import reducers from './store/reducers/reducers';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BookAppointment from './components/BookAppointment';
+import BookAppointmentFormLook from './components/BookAppointmentFormLook';
 
 
 const store = createStore(
@@ -100,7 +101,7 @@ export default class App extends Component {
                 headerBackTitleVisible: false,
             }} />
             <Stack.Screen name="Waiting Room" component={WaitingRoom} />
-            <Stack.Screen name="Book Appointment" component={BookAppointment} 
+            <Stack.Screen name="Book Appointment"  component={BookAppointment} 
               options={{ 
                 headerTitle: () =>  <Image style={styles.logoStyle} resizeMode='contain' source={require('./assets/logo-pink.png')} />,
               headerBackTitleVisible: false,

@@ -1,28 +1,15 @@
 import React from 'react'
 import {View, Text, Linking, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, ScrollView, Keyboard, TouchableWithoutFeedback } from 'react-native';
 
-import WaitingRoom from './WaitingRoom';
-import NewWaitingRoom from './NewWaitingRoom';
-
 import { BUTTON_THEME, headerLeftHitSlop, chevronHitSlop } from '../constants/props';
 
 import * as colors from '../constants/colors';
 import { headerStyle, res, } from '../styles';
 
-import PCPs from '../Lists/providers.json';
+import { FontAwesome, Feather } from '@expo/vector-icons';
 
-import { FontAwesome } from '@expo/vector-icons';
-
-export default function BookAppointment(props) {
-    const {
-        checkIn,
-        firstBeginTime,
-        secondBeginTime,
-        index,
-        date
-        } = props.route.params;
+export default function BookAppointment() {
     const [value, onChangeText] = React.useState('');
-    const [showWaitingRoom, toggleWaitingRoom] = React.useState('');
     return (
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
         
@@ -37,9 +24,7 @@ export default function BookAppointment(props) {
             <RenderPaymentRow leftText={'Patient'} rightText={'Add Patient'} />
             <RenderPaymentRow leftText={'Pharmacy'} rightText={'Add Pharmacy'} />
             <RenderPaymentRow leftText={'Payment'} rightText={'Add Payment'} last={true}/>
-            
-            {/* <View style={styles.labelWrapper}> */}
-                {/* <Text allowFontScaling={false} style={styles.labelStyle}>Reason</Text> */}
+                
                 <View style={styles.reasonInputContainer}>
                     <TextInput 
                         style={styles.textInput} 
@@ -51,16 +36,13 @@ export default function BookAppointment(props) {
                         maxLength={144}
                         />
                 </View>
-            {/* </View> */}
+           
             <View style={styles.buttonWrapper}>
-                <TouchableOpacity style={styles.bookButton} onPress={() => toggleWaitingRoom(!showWaitingRoom)}>
-                    <Text style={styles.bookButtonText}>{!!checkIn ? 'Check-In for Appointment' :`Book My Appointment`}</Text>
+                <TouchableOpacity style={styles.bookButton} onPress={() => console.log('pressed')}>
+                    <Text style={styles.bookButtonText}>Book My Appointment</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => Linking.openURL('tel:+18586170528')} hitSlop={headerLeftHitSlop}>
-                    <Text numberOfLines={1} style={styles.footerText}>Questions? Call (858) 617-0528</Text>
-                </TouchableOpacity>
+                <Text onPress={() => Linking.openURL('tel:+18586170528')} numberOfLines={1} style={styles.footerText}>Questions? Call (858) 617-0528</Text>
             </View>
-            <NewWaitingRoom visible={showWaitingRoom} date={date} transparent={!showWaitingRoom} firstBeginTime={firstBeginTime} secondBeginTime={secondBeginTime} name={index && PCPs.resolver[index].name} toggleModal={toggleWaitingRoom}/>
         </KeyboardAvoidingView>
         </TouchableWithoutFeedback>
     )
@@ -69,16 +51,18 @@ export default function BookAppointment(props) {
 const RenderPaymentRow = (props) => {
     return (
         <View style={styles.labelInputWrapper}>
+        <View style={styles.labelStyleWrapper}>
         {/* <FontAwesome name="circle" color={colors.TEXT_GREY_2} style={{marginLeft: res.scaleX(10)}} size={9} /> */}
-        <Text allowFontScaling={false} style={styles.labelStyle}>{props.leftText}</Text>
-        <View style={styles.inputContainer}>
+
+            <Text allowFontScaling={false} style={styles.labelStyle}>{props.leftText}</Text>
+        </View>
+        <View style={styles.inputContainerOuter}>
             <TouchableOpacity
                 hitSlop={chevronHitSlop}
-                style={styles.inputContainer}
+                style={styles.inputContainerInner}
             >
+                <Feather style={styles.chevronStyle} name="square" size={22} />
                 <Text allowFontScaling={false} style={styles.inputStyle}>{props.rightText}</Text>
-                <FontAwesome
-                    style={styles.chevronStyle} name="angle-right" size={28} color="white"/>
             </TouchableOpacity>
         </View>
     </View>
@@ -99,10 +83,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         // backgroundColor: '#eee',
         // width: res.DEVICE_WIDTH,
-        borderBottomWidth: .5,
-        borderBottomColor: colors.TEXT_GREY_2,
-    },
-    headerTextWrapper:{
 
     },
     headerText: {
@@ -123,19 +103,6 @@ const styles = StyleSheet.create({
     },
     labelInputWrapper: {
         flexGrow: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderBottomColor: colors.TEXT_LIGHT_GREY,
-        borderBottomWidth: 1,
-    },
-    labelLastInputWrapper: {
-        flexGrow: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    labelWrapper:{
-        flexGrow: .1,
-        paddingVertical: res.scaleY(32),
         flexDirection: 'column',
         alignItems: 'flex-start',
 
@@ -146,27 +113,44 @@ const styles = StyleSheet.create({
         fontSize: res.scaleFont(18),
         color: colors.TEXT_GREY,
     },
+    labelStyleWrapper:{
+        flex:1.5, 
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        borderBottomWidth: .5,
+        borderBottomColor: colors.TEXT_GREY_2,
+        width: res.DEVICE_WIDTH * .9,
+    },
     labelStyle: {
+        // paddingVertical: res.scaleY(5),
         fontFamily: 'brandon-med',
         color: colors.TEXT_GREY_2,
-        fontSize: res.scaleFont(22),
-        marginLeft: res.scaleX(8),
+        fontSize: res.scaleFont(28),
+        marginLeft: res.scaleX(12),
+        
     },
-    inputContainer: {
+    inputContainerOuter: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         margin: 5,
-        // width: res.DEVICE_WIDTH,
+        padding: 10,
+    },
+    inputContainerInner: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
     },
     inputStyle: {
         fontFamily:'brandon-bold',
         color: colors.THEME_GREEN,
-        fontSize: res.scaleFont(24),
+        fontSize: res.scaleFont(22),
     },
     chevronStyle: {
-        marginLeft: 15,
+        marginRight: 10,
         color: colors.THEME_GREEN,
     },
     // placeholderText: {
@@ -189,7 +173,7 @@ const styles = StyleSheet.create({
     },
     bookButtonText:{
         color: '#fff',
-        fontFamily: 'brandon-med',
+        fontFamily: 'brandon',
         fontSize: res.scaleFont(24),
     },
     reasonInputContainer:{

@@ -4,6 +4,8 @@ import Constants from 'expo-constants';
 import {connect} from 'react-redux';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+import moment from 'moment';
+
 import ProviderModal from './Modal';
 
 import scheduleData from '../EPICData/GetOpenSlots2019.json';
@@ -20,6 +22,8 @@ import * as colors from '../constants/colors';
 import PCPs from '../Lists/providers.json';
 
 import PCPInList from './PCPInList';
+
+const ITEM_HEIGHT = 80;
 
 class EpicGetOpenSlots extends Component {
     constructor(props){
@@ -61,36 +65,32 @@ class EpicGetOpenSlots extends Component {
 
     }
 
-    pressed = (a, b, c, d, bookText) =>{
+    pressed = (index, firstBeginTime, secondBeginTime) =>{
         this.props.navigation.navigate('Book Appointment', {
-            time: bookText
+            index,
+            firstBeginTime,
+            secondBeginTime,
         });
     }
 
     renderItem = ({item}) => {
-        let firstParsed = parseInt(item.Time.slice(0,2));
-        let secondParsed = item.Time.slice(3,5);
-        let AM_PM = ''
-        if (firstParsed < 12) {
-            AM_PM = 'AM';
-        } else{
-            AM_PM = 'PM';
-            firstParsed = firstParsed - 12;
-        }
-        const timeString = `${firstParsed.toString()}:${secondParsed} ${AM_PM}`;
-        const index = Math.floor(Math.random()* Math.floor(43));
-        console.log("index", index);
+        let time = item.Time;
+        //Add fifteen minutes to create a start time range
+        // console.log("second time ", secondTime);
+        
+        const firstBeginTime = moment(time, 'hh:mm:ss A').format('h:mm A');
+        const secondBeginTime = moment(time, 'hh:mm:ss A').add(15, 'minutes').format('h:mm A');
+        const index = 3; //Math.floor(Math.random()* Math.floor(43));
         return (
             <View key={Math.random()}>
                 {item.Provider.ID ? (
-                    <PCPInList name={PCPs.resolver[index].name} index={PCPs.resolver[index].index} toggleModal={this.toggleModal} press={this.pressed} img={PCPs.resolver[index].image} bookText={timeString}/>
+                    <PCPInList name={PCPs.resolver[index].name} index={PCPs.resolver[index].index} toggleModal={this.toggleModal} press={this.pressed} img={PCPs.resolver[index].image} firstBeginTime={firstBeginTime} secondBeginTime={secondBeginTime}/>
                 ) : null}
             </View>
             )
     };
 
     toggleModal = (providerIndex) => {
-        console.log("providerIndex ", providerIndex);
         this.setState( prevState => {
             return {
                 modalOpen: !prevState.modalOpen,
@@ -117,9 +117,9 @@ class EpicGetOpenSlots extends Component {
                     renderItem={this.renderItem}
                     keyExtractor={() => Math.random().toString()}
                     // stickyHeaderIndices={this.state.stickyHeaderIndices}
-                    // getItemLayout={(data, index)=> (
-                        //     {length: ( ITEM_HEIGHT +2), offset: (ITEM_HEIGHT+2) * index, index}
-                        // )}
+                    getItemLayout={(data, index) => (
+                        {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+                      )}
                         />
                 <ProviderModal modalOpen={this.state.modalOpen} providerIndex={this.state.providerIndex} toggleModal={this.toggleModal} />
             </SafeAreaView>

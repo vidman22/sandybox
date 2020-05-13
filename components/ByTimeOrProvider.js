@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Linking, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
+import { BUTTON_THEME, headerLeftHitSlop, chevronHitSlop } from '../constants/props';
 import * as colors from '../constants/colors';
 
 var Doctor = require('../assets/doctors_1500w.jpg');
@@ -29,12 +30,15 @@ const ByTimeOrProvider = ({navigation}) => {
                 </View>
                 <Feather style={styles.iconStyle} name="chevron-right" />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.scheduleButton}  onPress={() => navigation.navigate('Book Appointment')}>
+            <TouchableOpacity style={styles.scheduleButton}  onPress={() => navigation.navigate('Book Appointment', {checkIn: true})}>
                 <View style={styles.buttonTextWrapper}>
                     <Text style={styles.buttonText}>Check-in for appointment</Text>
                     <Text style={styles.buttonSubText}>Let us know you're ready</Text>
                 </View>
                 <Feather style={styles.iconStyle} name="chevron-right" />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => Linking.openURL('tel:+18586170528')} hitSlop={headerLeftHitSlop}>
+                <Text numberOfLines={1} style={styles.footerText}>Questions? Call (858) 617-0528</Text>
             </TouchableOpacity>
         </View>
     );
@@ -56,12 +60,12 @@ const styles = StyleSheet.create({
     doctorsImageStyle: {
         height: res.DEVICE_HEIGHT * 0.30,
         width: res.DEVICE_WIDTH,
-        marginTop: 20
+        margin: 10
     },
     scheduleButton:{
         height: res.scaleY(80),
         width: res.DEVICE_WIDTH*.90,
-        margin: res.scaleX(18),
+        margin: res.scaleX(10),
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -78,14 +82,20 @@ const styles = StyleSheet.create({
     },
     buttonSubText: {
         ...buttonTextCommon,
-        color: colors.TEXT_LIGHT_GREY,
+        color: colors.TEXT_GREY,
         fontSize: res.scaleFont(20),
         fontFamily: 'brandon',
-        
     },
     iconStyle:{
         fontSize: res.scaleFont(26),
         marginRight: res.scaleX(12),
         color: colors.TEXT_GREY_2,
-    }
+    },
+    footerText: {
+        fontFamily: 'brandon',
+        marginTop: res.scaleY(10),
+        marginBottom: - res.scaleY(8),
+        fontSize: res.scaleFont(18),
+        color: colors.TEXT_GREY,
+    },
 })

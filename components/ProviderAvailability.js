@@ -6,12 +6,16 @@ import ProviderModal from './Modal';
 
 import { headerStyle, fonts, hideHeaderStyle, res } from '../styles';
 
+import moment from 'moment';
+
 import * as colors from '../constants/colors';
 
 import _ from 'lodash';
 
 import scheduleData from '../EPICData/GetScheduleDaysForProvider.json';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+
+import PCPs from '../Lists/providers.json';
 
 const ITEM_HEIGHT = 80;
 
@@ -36,24 +40,20 @@ class ProviderAvailability extends Component {
             const date = new Date(scheduleData.ScheduleDays[i].Date).toUTCString();
             const dateString = date.split(' ').slice(0, 4).join(' ');
             if (scheduleData.ScheduleDays[i].Slots.length === 0 ){
-                // options.push({type: "day", date: dateString, key: Math.random()});
-                // options.push({type: "slot", time: 'No Availability', key: Math.random()});
+                //return nothing if there are no slots for that day
             } else {
                 options.push({type: "day", date: dateString, key: Math.random()});
             }
             for (let k = 0; k < scheduleData.ScheduleDays[i].Slots.length; k++){
+                const time = scheduleData.ScheduleDays[i].Slots[k].Time.toString();
+                //Add fifteen minutes to create a start time range
+                const secondTime = moment(time, 'hh:mm:ss A').add(15, 'minutes').format('h:mm A');
+                // console.log("second time ", secondTime);
+           
+                const momentTime = moment(time, 'hh:mm:ss A').format('h:mm A');
+                const secondMomentTime =  secondTime;
 
-                let firstParsed = parseInt(scheduleData.ScheduleDays[i].Slots[k].Time.slice(0,2));
-                let secondParsed = scheduleData.ScheduleDays[i].Slots[k].Time.slice(3,5);
-                let AM_PM = ''
-                if (firstParsed < 12) {
-                    AM_PM = 'AM';
-                } else{
-                    AM_PM = 'PM';
-                    firstParsed = firstParsed - 12;
-                }
-                const timeString = `${firstParsed.toString()}:${secondParsed} ${AM_PM}`;
-                options.push({type: 'slot', time: timeString, key: Math.random()});
+                options.push({type: 'slot', firstBeginTime: momentTime, secondBeginTime: secondMomentTime, key: Math.random(), date: dateString});
             }
         }
         for (let i = 0; i < options.length; i ++){
@@ -61,8 +61,6 @@ class ProviderAvailability extends Component {
                 headerIndices.push(i);
             }
         }
-        // console.log("options length ", options.length );
-        // console.log("indices", headerIndices );
 
         this.setState({
             refreshing: false,
@@ -74,7 +72,10 @@ class ProviderAvailability extends Component {
 
     pressed = (item) =>{
         this.props.navigation.navigate('Book Appointment', {
-            time: item.time
+            index: this.props.route.params.index,
+            firstBeginTime: item.firstBeginTime,
+            secondBeginTime: item.secondBeginTime,
+            date: item.date,
         });
     }
 
@@ -101,17 +102,17 @@ class ProviderAvailability extends Component {
 
     renderItem = ({item}) => {
         return (
-            <TouchableOpacity onPress={() => this.pressed(item)}>
-                {item.type === 'day' ? <View style={styles.date}><Text style={styles.dateText}>{item.date}</Text></View>: <View style={styles.slot}><Text style={styles.slotText}>{item.time}</Text></View>}
+            <TouchableOpacity disabled={item.type === 'day'} onPress={() => this.pressed(item)}>
+                {item.type === 'day' ? <View style={styles.date}><Text style={styles.dateText}>{item.date}</Text></View>: <View style={styles.slot}><Text style={styles.slotText}>{item.firstBeginTime}</Text></View>}
             </TouchableOpacity>
         );
     }
 
     render() {
-        console.log("index in availability ", this.props.route.params.index);
+        const {index}  = this.props.route.params;
         return (
             <SafeAreaView style={styles.scrollContainer}>
-                <Provider index={this.props.route.params.index} route={this.props.route} toggleModal={this.toggleModal}/>
+                <Provider index={index} toggleModal={this.toggleModal}/>
                 <FlatList 
                     refreshing={this.state.refreshing}
                     onRefresh={() => console.log("refresh fired")}
@@ -127,7 +128,7 @@ class ProviderAvailability extends Component {
                     //     {length: ( ITEM_HEIGHT +2), offset: (ITEM_HEIGHT+2) * index, index}
                     // )}
                 />
-                <ProviderModal modalOpen={this.state.modalOpen} providerIndex={this.props.route.params.index} toggleModal={this.toggleModal} />
+                <ProviderModal modalOpen={this.state.modalOpen} providerIndex={index} toggleModal={this.toggleModal} />
             </SafeAreaView>
         );
     }
@@ -137,15 +138,14 @@ export default ProviderAvailability;
 
 
 
-const Provider = ({route, toggleModal}) => {
-    // console.log("route params ",  route.params);
-    const { name, img,} = route.params;
+const Provider = ({index, toggleModal}) => {
+
     return (
         <TouchableOpacity onPress={() => toggleModal()}>
 
             <View style={styles.nameImageWrapper}>
-                <Image style={{ width: 90, height: 90, borderRadius: 45 }} source={{ uri: img }} /> 
-                <Text style={styles.pcpTextStyle}>{ name }</Text>
+                <Image style={{ width: 90, height: 90, borderRadius: 45 }} source={{ uri: PCPs.resolver[index].image }} /> 
+                <Text style={styles.pcpTextStyle}>{ PCPs.resolver[index].name }</Text>
             </View>
         </TouchableOpacity>
 
